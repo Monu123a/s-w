@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            box-sizing:border-box ;
+
+        }
+        .container{
+            
+            display: grid;
+            row-gap: 20px;
+            column-gap: 5px;
+            grid-template-columns:350px 350px 350px 350px ;
+            grid-template-rows:200px 200px 200px ;
+            
+            
+
+
+
+        }
+        .box{
+            border: 2px solid transparent;
+            padding: 12px;
+             
+            
+        }
+        #box-1{
+            grid-row-start:1 ;
+            grid-row-end: 5;
+            
+        }
+        #box-2{
+            grid-column: 2/ span 2;
+            
+        }
+        #box-6{
+            grid-row: 2/ span 2;
+        }
+
+   
+
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="box" id="box-1">
+            <img src="https://images.pexels.com/photos/3879070/pexels-photo-3879070.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 335px;height: 640px;">
+        </div>
+        <div class="box" id="box-2">
+            <img src="https://images.pexels.com/photos/1431822/pexels-photo-1431822.jpeg?cs=srgb&dl=pexels-brett-sayles-1431822.jpg&fm=jpg" style="width:700px ; height: 200px;">
+            
+        </div>
+
+        <div class="box" id="box-3">
+            <img src="https://www.udaipuradventures.com/wp-content/uploads/2022/02/aerial-view-of-lake-pichola-with-lake-palace-jag-2021-08-26-22-58-05-utc-2048x1559.jpg" style="height: 190px;width: 330px;">
+        </div>
+        <div class="box" id="box-4">
+            <img src="https://images.pexels.com/photos/6243802/pexels-photo-6243802.jpeg?auto=compress&cs=tinysrgb&w=800" style="height: 210px;width: 330px;">
+           
+        </div>
+
+        <div class="box" id="box-5">
+            <img src="https://images.pexels.com/photos/27651386/pexels-photo-27651386/free-photo-of-many-hot-air-balloons-are-flying-in-the-sky.jpeg?auto=compress&cs=tinysrgb&w=800" style="height: 210px;width: 330px;">
+        </div>
+        <div class="box" id="box-6">
+            <img src="https://images.pexels.com/photos/3226717/pexels-photo-3226717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="height:420px ; width: 330px ;">
+        </div>
+        <div class="box" id="box-7">
+            <img src="https://images.pexels.com/photos/6302135/pexels-photo-6302135.jpeg?auto=compress&cs=tinysrgb&w=800" style="height:210px ; width: 330px ;">
+        </div>
+        
+        <div class="box" id="box-8">
+            <img src="https://images.pexels.com/photos/8321306/pexels-photo-8321306.jpeg?auto=compress&cs=tinysrgb&w=800" style="height:210px ; width: 330px ;"> 
+        </div>
+
+        <!-- <div class="box" id="box-9">box-9</div> -->
+        <!-- <div class="box" id="box-10">box-10</div> -->
+    </div>
+</body>
+</html>
