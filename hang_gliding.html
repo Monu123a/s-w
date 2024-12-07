@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            box-sizing:border-box ;
+
+        }
+        .container{
+            
+            display: grid;
+            row-gap: 20px;
+            column-gap: 5px;
+            grid-template-columns:350px 350px 350px 350px ;
+            grid-template-rows:200px 200px 200px ;
+            
+            
+
+
+
+        }
+        .box{
+            border: 2px solid transparent;
+            padding: 12px;
+             
+            
+        }
+        #box-1{
+            grid-row-start:1 ;
+            grid-row-end: 5;
+            
+        }
+        #box-2{
+            grid-column: 2/ span 2;
+            
+        }
+        #box-6{
+            grid-row: 2/ span 2;
+        }
+
+   
+
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="box" id="box-1">
+            <img src="https://images.pexels.com/photos/9532464/pexels-photo-9532464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 335px;height: 640px;">
+        </div>
+        <div class="box" id="box-2">
+            <img src="https://asset---north-carolina.bldg15.net/img/6/2/6208ac7e-0f2a-4a1c-a9a7-31eeaabd43af/Nags%20Head_Jockey%27s%20Ridge%20Hang%20Gliding_For%20Real_Fall_3-crop(1,0.638,0,0.334,r4).af6209d5.jpg" style="width:700px ; height: 200px;">
+            
+        </div>
+
+        <div class="box" id="box-3">
+            <img src="https://www.kittyhawk.com/wp-content/uploads/2015/03/Untitled-Website-1.png" style="height: 190px;width: 330px;">
+        </div>
+        <div class="box" id="box-4">
+            <img src="https://cdn.britannica.com/25/197125-050-13EEA45D/Hang-gliders-valley-Slovenia-Tolmin.jpg" style="height: 210px;width: 330px;">
+           
+        </div>
+
+        <div class="box" id="box-5">
+            <img src="https://static.sciencelearn.org.nz/images/images/000/000/301/embed/FLT_LKC_ART_04_Hanggliders_HandGlider.jpg?1674164065" style="height: 210px;width: 330px;">
+        </div>
+        <div class="box" id="box-6">
+            <img src="https://cdn.britannica.com/61/115361-050-C5993ACD/Hang-gliding.jpg" style="height:420px ; width: 330px ;">
+        </div>
+        <div class="box" id="box-7">
+            <img src="https://media.istockphoto.com/id/999964474/photo/deltoplan.jpg?s=612x612&w=0&k=20&c=YSMGOjtOiqFbW4zHIb_Sf2yY1yGlODnQmz7wVXFoc5M=" style="height:210px ; width: 330px ;">
+        </div>
+        
+        <div class="box" id="box-8">
+            <img src="https://db637ll7r1kva.cloudfront.net/app/uploads/2022/08/04090908/GettyImages-97843537.jpg" style="height:210px ; width: 330px ;"> 
+        </div>
+
+        <!-- <div class="box" id="box-9">box-9</div> -->
+        <!-- <div class="box" id="box-10">box-10</div> -->
+    </div>
+</body>
+</html>
