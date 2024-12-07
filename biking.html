@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            box-sizing:border-box ;
+
+        }
+        .container{
+            
+            display: grid;
+            row-gap: 20px;
+            column-gap: 5px;
+            grid-template-columns:350px 350px 350px 350px ;
+            grid-template-rows:200px 200px 200px ;
+            
+            
+
+
+
+        }
+        .box{
+            border: 2px solid transparent;
+            padding: 12px;
+             
+            
+        }
+        #box-1{
+            grid-row-start:1 ;
+            grid-row-end: 5;
+            
+        }
+        #box-2{
+            grid-column: 2/ span 2;
+            
+        }
+        #box-6{
+            grid-row: 2/ span 2;
+        }
+
+   
+
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="box" id="box-1">
+            <img src="https://media.istockphoto.com/id/1211830207/photo/senior-woman-on-mountain-bike-in-winter.jpg?s=612x612&w=0&k=20&c=YeEtYEzoNDvDy74ImdxMJFb8xuJug18IDh9RORVHoe8=" style="width: 335px;height: 640px;">
+        </div>
+        <div class="box" id="box-2">
+            <img src="https://ebike-mtb.com/wp-content/uploads/sites/2/2024/08/AMFLOW_PL_Carbon_Pro_DJI_Ebike_Test_WEB_Res-3390-2000x500.jpg" style="width:700px ; height: 200px;">
+            
+        </div>
+
+        <div class="box" id="box-3">
+            <img src="https://www.alpinestars.com/cdn/shop/collections/Small-MTB_FA_23_DROP_V1_1440x1800_Social_6_ed587654-ae10-4f59-96ae-8b688afa5198.jpg?v=1713908561&width=1200" style="height: 200px;width: 330px;">
+        </div>
+        <div class="box" id="box-4">
+            <img src="https://i.ytimg.com/vi/N2IJFzhW_Gc/maxresdefault.jpg" style="height: 210px;width: 330px;">
+           
+        </div>
+
+        <div class="box" id="box-5">
+            <img src="https://beatusbikes.com/wp-content/uploads/2022/09/Best-Mountain-Biking-Trails-in-Spain.jpg" style="height: 210px;width: 330px;">
+        </div>
+        <div class="box" id="box-6">
+            <img src="https://www.visitwales.com/sites/visit/files/styles/o_herostandard_fullwidth_1x/public/media-library/2019-10/Penmachno-4865-small.jpg?h=ec67bb8c&itok=pIb-nwFu"style="height:420px ; width: 330px ;">
+        </div>
+        <div class="box" id="box-7">
+            <img src="https://images.squarespace-cdn.com/content/v1/569ed0040ab377818080c55b/1718318242333-0OAX1G0793EP7OJDAHZ2/BY1A7819.jpg?format=2500w" style="height:210px ; width: 330px ;">
+        </div>
+        
+        <div class="box" id="box-8">
+            <img src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/09/28/mountain-biking-at-glenlivet-mountain-bike-centre.jpg" style="height:210px ; width: 330px ;"> 
+        </div>
+
+        <!-- <div class="box" id="box-9">box-9</div> -->
+        <!-- <div class="box" id="box-10">box-10</div> -->
+    </div>
+</body>
+</html>
