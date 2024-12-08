@@ -4,49 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body{
-            margin:0;
-            padding:0;
-            box-sizing:border-box ;
-
+    
+        <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
-        .container{
-            
+        
+        .hero {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(12, 3, 51, 0.3), rgba(12, 3, 51, 0.3));
+            position: relative;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        nav {
+            width: 90%;
+            height: 100px;
+            background-color: #ffffff;
+            opacity: 0.4;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 20px 5%;
+            display: flex;
+            align-content: center;
+            justify-content: space-between;
+        }
+        
+        nav ul li {
+            list-style: none;
+            display: inline-block;
+            margin-left: 40px;
+            margin-top: 25px;
+        }
+        
+        nav ul li a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            font-size: 17px;
+        }
+        
+        .container {
             display: grid;
+            justify-content: center;
             row-gap: 20px;
             column-gap: 5px;
-            grid-template-columns:350px 350px 350px 350px ;
-            grid-template-rows:200px 200px 200px ;
-            
-            
-
-
-
+            grid-template-columns: repeat(4, 350px);
+            grid-template-rows: repeat(3, 200px);
+            margin: 50px auto;
         }
-        .box{
+        
+        .box {
             border: 2px solid transparent;
             padding: 12px;
-             
-            
         }
-        #box-1{
-            grid-row-start:1 ;
+        
+        #box-1 {
+            grid-row-start: 1;
             grid-row-end: 5;
-            
         }
-        #box-2{
-            grid-column: 2/ span 2;
-            
+        
+        #box-2 {
+            grid-column: 2 / span 2;
         }
-        #box-6{
-            grid-row: 2/ span 2;
+        
+        #box-6 {
+            grid-row: 2 / span 2;
         }
-
-   
-
-
-
+        
+        .text-content {
+            margin: 50px auto;
+            padding: 20px;
+            border: 0.5px solid rgb(113, 113, 113);
+            border-radius: 10px;
+            max-width: 1200px;
+            background-color: #f9f9f9;
+        }
+        
+        h2 {
+            font-size: 30px;
+            text-align: center;
+        }
+        
+        p {
+            font-size: 20px;
+            text-align: justify;
+        }
     </style>
 </head>
 <body>
@@ -83,10 +133,12 @@
         </div>
 
     </div>
-    <div style="font-family: raleway; margin-top: 30px; font-size: 30px;margin-left: 100px;margin-right: 100px;">
-        Mountain Biking
-    </div>
-    <div style="font-size:20px;margin-left: 100px;margin-right: 100px;">
+
+    <div class="text-content">
+        <h2>Mountain Biking</h2>
+
+    
+    <p>
         Ride the Trails: Experience the Thrill of Mountain Biking
 Mountain biking is more than just a sport – it’s an adventure! Whether you're conquering rugged trails, navigating technical descents, or enjoying scenic forest paths, mountain biking offers a perfect way to explore the outdoors. From thrilling downhill runs to peaceful cross-country routes, there’s a mountain biking trail for every skill level and adventure seeker.
 
@@ -100,12 +152,15 @@ Guided Tours: Not sure where to start? Join our experienced guides who will take
 Bike Rentals: We offer a wide range of mountain bikes, from hardtail to full-suspension models, suitable for beginners to advanced riders. All bikes are maintained to the highest standards for your safety and comfort.
 Skill Development: Whether you're a beginner or looking to improve your skills, we offer lessons and training to help you master the techniques of mountain biking.
 Custom Adventures: For the experienced rider, we offer bespoke mountain biking experiences, including challenging trails and overnight bikepacking trips.
+    </p>
     </div>
-    <div style="margin-top: 30px;font-family: raleway;font-size: 30px;margin-left: 100px;margin-right: 100px;">
-        Where can Mountain Biking be done?
+
+    <div class="text-content">
+        <h2>Where can Mountain Biking be done?</h2>
+
         
-    </div>
-    <div style="font-size:20px;margin-left: 100px;margin-right: 100px;">
+    
+    <p>
         Ride the Trails: Experience the Thrill of Mountain Biking
 Mountain biking is more than just a sport – it’s an adventure! Whether you're conquering rugged trails, navigating technical descents, or enjoying scenic forest paths, mountain biking offers a perfect way to explore the outdoors. From thrilling downhill runs to peaceful cross-country routes, there’s a mountain biking trail for every skill level and adventure seeker.
 
@@ -118,14 +173,16 @@ Our Mountain Biking Services
 Guided Tours: Not sure where to start? Join our experienced guides who will take you through the best trails, providing tips and ensuring your safety as you enjoy the ride.
 Bike Rentals: We offer a wide range of mountain bikes, from hardtail to full-suspension models, suitable for beginners to advanced riders. All bikes are maintained to the highest standards for your safety and comfort.
 Skill Development: Whether you're a beginner or looking to improve your skills, we offer lessons and training to help you master the techniques of mountain biking.
-Custom Adventures: For the experienced rider, we offer bespoke mountain biking experiences, including challenging trails and overnight bikepacking trips.
+Custom Adventures: For the experienced rider, we offer bespoke mountain biking experiences, including challenging trails and overnight bikepacking trips.</p>
+    </div>
+
         
-    </div>
-    <div style="margin-top: 30px;font-family: raleway;font-size: 30px;margin-left: 100px;margin-right: 100px;">
-        Eligibilty for Mountain Biking
-    </div>
-    <div style="font-size:20px;margin-left: 100px;margin-right: 100px;">
-        Age Requirements
+    <div class="text-content">
+       <h2> Eligibilty for Mountain Biking</h2>
+
+    
+    
+       <p>Age Requirements
 Minimum Age:
 Most bike rental services and guided tours offer bikes for children as young as 3 to 5 years old. These bikes are usually smaller and suited for very basic trails or paved paths.
 For more technical trails, children and young adults should be comfortable with riding and may need guidance or training.
@@ -162,6 +219,28 @@ Pads and Protective Gear:
 Knee pads, elbow pads, gloves, and elbow guards are recommended, especially for downhill and technical trails. Protective gear can help minimize injury risks.
 Health Insurance:
 Since mountain biking involves risks, it’s advisable to have adequate insurance that covers accidents or injuries during outdoor sports.
+    </p>
     </div>
+
+    <footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; margin-top: 50px;">
+        <div style="margin-bottom: 10px;">
+            <a href="#about" style="color: #fff; text-decoration: none; margin: 0 10px;">About</a>
+            <a href="#contact" style="color: #fff; text-decoration: none; margin: 0 10px;">Contact</a>
+            <a href="#privacy" style="color: #fff; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
+        </div>
+        <p style="margin: 0;">© 2024 Hot Air Balloon Adventures. All rights reserved.</p>
+        <div style="margin-top: 10px;">
+            <a href="https://www.facebook.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 5px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Facebook_icon_%28black%29.svg" alt="Facebook" style="width: 20px; vertical-align: middle;">
+            </a>
+            <a href="https://www.twitter.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 5px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Twitter_icon_black.svg" alt="Twitter" style="width: 20px; vertical-align: middle;">
+            </a>
+            <a href="https://www.instagram.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 5px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon_black.svg" alt="Instagram" style="width: 20px; vertical-align: middle;">
+            </a>
+        </div>
+    </footer>
+
 </body>
 </html>
