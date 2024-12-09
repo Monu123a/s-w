@@ -7,727 +7,533 @@
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Bilbo+Swash+Caps&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=League+Script&family=Molle&family=Playwrite+PE:wght@100..400&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=League+Script&family=Playwrite+PE:wght@100..400&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Mogra&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Bilbo+Swash+Caps&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=League+Script&family=Libre+Caslon+Display&family=Molle&family=Playwrite+PE:wght@100..400&display=swap" rel="stylesheet">
     <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        h4 {
-            font-family: "Molle", cursive;
-            font-weight: 400;
-            font-style: italic;
-        }
-        
-        h2 {
-            font-family: "Edu AU VIC WA NT Arrows", cursive;
-            font-optical-sizing: auto;
-        }
-        
-        h1 {
-            font-family: "Mogra", system-ui;
+        h1,
+        h2,
+        h3,
+        p,
+        h4,
+        h5,
+        h6 {
+            font-family: "Libre Caslon Display", serif;
             font-weight: 400;
             font-style: normal;
         }
         
-        p {
-            font-family: "Playwrite PE", cursive;
-            font-optical-sizing: auto;
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
         }
         
-        body {
-            background-image: url(https://cdn.pixabay.com/photo/2017/06/13/13/51/marble-2398946_1280.jpg);
+        .top {
+            width: 100%;
+            height: 100vh;
+            background-image: url(https://images.pexels.com/photos/8849702/pexels-photo-8849702.jpeg);
             background-repeat: no-repeat;
             background-position: center;
-            background-attachment: fixed;
             background-size: cover;
-            margin: 0;
-            padding: 0;
         }
         
-        .hero {
-            width: 100%;
-            min-height: 100vh;
-            background-image: linear-gradient(rgba(12, 3, 51, 0.3), rgba(12, 3, 51, 0.3));
-            position: relative;
-            padding: 0 5%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        nav {
-            width: 100%;
-            height: 100px;
-            background-color: #ffffff;
-            opacity: 0.4;
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 20px 5%;
-            display: flex;
-            align-content: center;
-            justify-content: space-between;
-        }
-        
-        nav ul li {
+        ul li,
+        h2 {
             list-style: none;
             display: inline-block;
-            margin-left: 40px;
-            margin-top: 25px;
+            margin-left: 50px;
+            margin-right: 10px;
+            text-align: right;
+            margin-top: 10px;
         }
         
-        nav ul li a {
+        ul li a,
+        h2 {
             color: rgb(0, 0, 0);
             text-decoration: none;
             font-size: 17px;
         }
         
-        .content {
-            text-align: center;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        .content h1 {
-            font-size: 150px;
-            color: rgb(255, 255, 255);
-            font-weight: 600;
-            transition: 0.5s;
-            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-            animation-name: example;
-            animation-duration: 10s;
-            animation-iteration-count: infinite;
-        }
-        
-        @keyframes example {
-            from {
-                color: white;
-            }
-            to {
-                color: black;
-            }
-        }
-        
-        .content h1:hover {
-            -webkit-text-stroke: 2px #000000;
-            color: transparent;
-        }
-        
-        .content a {
-            text-decoration: none;
-            display: inline-block;
-            color: #fffcfc;
+        .testimonial-section h1 {
+            display: flex;
+            align-items: center;
             font-size: 24px;
-            border: 2px solid #ffffff;
-            padding: 14px 70px;
-            border-radius: 50px;
-            margin-top: 20px;
-        }
-        
-        .back-video {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
-        }
-        
-        @media (min-aspect-ratio: 16/9) {
-            .back-video {
-                width: auto;
-                height: 100%;
-            }
-        }
-        
-        @media (max-aspect-ratio: 16/9) {
-            .back-video {
-                width: auto;
-                height: 100%;
-            }
-        }
-        
-        .vehicals h3 {
-            color: #fff;
-            font-size: 12px;
-            margin-top: 60px;
-            margin-bottom: 30px;
-            margin-left: 150px;
-        }
-        
-        .vehicals {
-            display: inline-block;
-        }
-        
-        .vehicals ul li {
-            list-style: none;
-            margin-left: 150px;
-            margin-top: 10px;
-        }
-        
-        .vehicals ul li a {
-            color: rgb(160, 155, 155);
-            text-decoration: none;
-            font-size: 15px;
-        }
-        
-        .cat {
-            margin-bottom: 100px;
-        }
-        
-        .end h3 {
-            color: #fff;
-            margin-left: 170px;
-            margin-bottom: 40px;
-        }
-        
-        .a {
-            color: rgb(137, 131, 131);
-            margin-left: 150px;
-            font-size: 12px;
             margin-bottom: 20px;
         }
         
-        .b {
-            color: rgb(137, 131, 131);
-            margin-left: 150px;
-            font-size: 12px;
-            margin-right: 800px;
-            margin-bottom: 100px;
+        .testimonial-section .icon {
+            font-size: 40px;
+            color: #fdbf00;
+            margin-right: 10px;
+            margin-left: 20px;
         }
         
-        .grey {
-            height: 120px;
-            width: 100%;
-            background-color: rgb(75, 74, 74);
-            border: 0.2px solid black;
-        }
-        
-        .grey ul li {
-            list-style: none;
-            display: inline-block;
-            margin-left: 50px;
-            margin-top: 53px;
-        }
-        
-        .grey ul li a {
-            color: rgb(172, 172, 169);
-            text-decoration: none;
-            font-size: 20px;
-            margin-top: 53px;
-        }
-        
-        .contant {
-            width: 100%;
-            height: 180px;
-            background-color: transparent;
-            margin-top: 70px;
+        .testimonial-container {
             display: flex;
+            gap: 15px;
             justify-content: center;
+            flex-wrap: wrap;
         }
         
-        .paragraph {
-            width: 1500px;
-            height: 150px;
-            border: 0.5px solid rgb(255, 255, 255);
-            border-radius: 10px;
-            margin-left: 150px;
-            background-color: rgb(233, 233, 233);
-            box-shadow: 15px 22px 20px 5px grey;
-            transition: all 0.3s;
+        .testimonial-card {
+            background-color: #c1c1c1;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 350px;
+            height: 400px;
+            border: 1px dotted #aaa;
         }
         
-        .grid1 {
-            width: 100%;
-            display: grid;
-            grid-template-rows: 1000px 1000px 1000px 800px;
-            grid-template-columns: 550px 550px 550px;
-            border-radius: 15px;
-            justify-content: center;
-            column-gap: 50px;
-            background-color: transparent;
-            background: transparent 0.5;
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
         }
         
-        .button:hover {
-            box-shadow: 12px 17px 13px 4px grey;
-            transform: scale(1.1);
-            transition: all 0.5s;
-        }
-        
-        .button {
-            background-color: #E97330;
-            color: white;
-            padding: 20px 70px;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
+        .label {
+            font-size: 14px;
             font-weight: bold;
-            cursor: pointer;
-            text-align: center;
-            display: inline-block;
-            text-decoration: none;
-            align-items: center;
-            margin-left: 125px;
-            margin-top: 35px;
+            color: #666;
         }
         
-        @keyframes example {
-            0% {
-                left: -100px;
-            }
-            100% {
-                left: 300px;
-            }
+        .value {
+            font-size: 16px;
+            font-weight: normal;
+            color: #333;
+        }
+        
+        .rating {
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        
+        .testimonial-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
         }
         
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff;
+            background-color: #f5f5f5;
             color: #333;
         }
         
-        .container {
-            max-width: 1100px;
-            margin: 20px auto;
-            padding: 20px;
+        .footer-section {
+            background-color: #f9a32b;
+            padding: 80px 40px;
+            color: #333;
         }
         
-        .testimonial-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-left {
+            flex: 1;
+            margin-right: 40px;
+            max-width: 600px;
+        }
+        
+        .footer-left h2 {
+            font-size: 36px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            line-height: 1.5;
         }
         
-        .image {
-            width: 100%;
-            max-height: 500px;
-            overflow: hidden;
+        .footer-left p {
+            margin-bottom: 30px;
+            font-size: 18px;
+            color: #222;
         }
         
-        .image img {
-            width: 100%;
-            height: auto;
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
         
-        .text-section {
-            padding: 20px;
-        }
-        
-        .title {
-            text-transform: uppercase;
+        .newsletter-form label {
+            font-size: 16px;
             font-weight: bold;
-            color: #ff7700;
-            font-size: 24px;
-            margin-bottom: 10px;
         }
         
-        .quote {
-            font-size: 20px;
-            line-height: 1.6;
-            color: #666;
-            position: relative;
+        .newsletter-form input[type="email"] {
+            padding: 15px;
+            border: none;
+            border-bottom: 1px solid #333;
+            outline: none;
+            font-size: 18px;
+            background-color: transparent;
         }
         
-        .quote::before {
-            content: "";
-            font-size: 40px;
-            color: #ff7700;
-            position: absolute;
-            left: -10px;
-            top: -10px;
+        .privacy-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 16px;
         }
         
-        .author {
-            margin-top: 20px;
-            font-size: 14px;
-            font-weight: bold;
+        .subscribe-button {
+            background-color: #333;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .subscribe-button:hover {
+            background-color: #555;
+        }
+        
+        .footer-right {
+            flex: 1;
+            display: flex;
+            gap: 40px;
+        }
+        
+        .footer-right ul {
+            list-style: none;
+        }
+        
+        .footer-right li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-right a {
             color: #333;
+            text-decoration: none;
+            font-size: 16px;
         }
         
-        .author span {
-            display: block;
-            font-size: 12px;
-            font-weight: normal;
-            color: #666;
+        .footer-right a:hover {
+            text-decoration: underline;
         }
         
-        .slider {
-            display: flex;
-            overflow: hidden;
-            width: 90%;
-            /* Adjust container width */
-            height: calc();
-            /* Set height */
-            margin: 50px auto;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .footer-bottom {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 14px;
         }
         
-        .slider-track {
-            display: flex;
-            animation: scroll 60s linear infinite;
-            /* Increased duration to accommodate more images */
-            gap: 100px;
-            /* Space between slides */
+        .footer-bottom a {
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
         }
         
-        .slide {
-            flex-shrink: 0;
-            /* Prevent shrinking */
-            width: calc(90% - 100px);
-            /* Account for the gap */
-            height: 100%;
-        }
-        
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-        /* Keyframes for seamless scrolling */
-        
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(calc(-900% - 900px));
-                /* Adjust based on total slides and gaps */
-            }
+        .footer-bottom a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
-    <div class="hero">
-        <video autoplay loop muted plays-inline class="back-video">
-            <source src="videoplayback (online-video-cutter.com).mp4" type="video/mp4">
-        </video>
-        <nav>
-            <img src="image copy 5.png" class="logo" style="width: 80px; height: 80px;">
-            <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">ADVENTURE SPORTS</a></li>
-                <li><a href="#">LOCATION</a></li>
-                <li><a href="#">CONTACT</a></li>
-                <li><a href="#">ABOUT US</a></li>
-            </ul>
-        </nav>
-        <div class="content">
-            <h1>ADVENTURE SPORTS</h1>
-            <a href="#">EXPERIENCE NOW</a>
+    <div class="top">
+        <div class="top1" style="display: flex;">
+            <div style="background-color: white;height: 40px;width: 400px;margin-top: 30px; display: flex; border-radius: 20px;margin-left: 20px;">
+                <h2><a href="index.html">HOOPUP</a></h2>
+            </div>
+            <div style="background-color: white;height: 40px;width: 1000px;margin-top: 30px;display: flex;border-radius: 20px;margin-left: 10px;text-align: end;margin-right: 10px;">
+                <ul>
+                    <li><a href="#">Explore Sports</a></li>
+                    <li><a href="#">Plans For You</a></li>
+                    <li><a href="#">Magazine</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+            <div style="background-color: black;color: white;height: 40px;width: 400px;margin-top: 30px;display: flex;border-radius: 20px;margin-left: 20px;">
+                <ul>
+                    <li style="color: white;"><a href="#" style="color: white;">EXPLORE RIGHT NOW</a></li>
+                </ul>
+            </div>
         </div>
-
-
-    </div>
-
-
-
-    <div class="contant">
-        <div class="paragraph">
-            <h1 style="margin-left: 18px;margin-top: 18px;color: gray;">ADVENTURE SPORTS</h1>
-            <p style="margin-top: 25px; margin-left: 15px;">Unleash the Thrill Within, Embrace Every Adventure, Conquer the Wild Unknown, Push Beyond Boundaries, Chase the Extraordinary, and Redefine Your Limits!</p>
+        <h1 style="font-size: 100px;margin-top: 30px;">HOOPUP ADVENTURE SPORTS</h1>
+        <H2 style="font-size: 100px;color: white;">➟ DISCOVER UNIQUE ADVENTURE SPORTS EXPERIENCE WITH HOOPUP</H2>
+        <div style="background-color: rgb(199, 153, 74);width: 400px;height: 30px;border-radius: 20px;margin-left: 1100px;display: flex;">
+            <h3>
+                <a href="#" style="margin-left: 10px;margin-top: 15px;text-decoration: none;color: black; ">EXPLORE</a>
+            </h3>
+            <p style="margin-left: 250px;margin-top: 5px;">⬀</p>
         </div>
     </div>
-    <h1 style="margin-top: 100px;margin-bottom: 40px;font-size: 64px; margin-bottom: 100px;color: rgb(0, 0, 0);text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;text-align: center;">Adventure Sports In India</h1>
-    <div class="grid1">
-        <div class="d" style="width: 500px;height: 900px;border-radius: 15px;background-color:transparent;">
-            <img src="https://images.pexels.com/photos/10866666/pexels-photo-10866666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 500px;height: 700px; border-radius: 15px;">
-            <h2 style="margin-top: 10px; margin-left: 5px;text-align: center;">SKY DIVING</h2>
-            <p style="font-size: 24px;text-align: center;margin-top: 5px;font-style: italic;">Feel fear, embrace the leap.</p>
-            <a href="#" class="button">READ MORE</a>
-
-
+    <h1 style="font-size: 40px;margin-top: 120px;margin-left: 30px;">Learn More About Adventure Sports</h1>
+    <div style="margin-top: 40px;display: flex;margin-left: 20px;margin-right: 20px;">
+        <div style="width: 760px;height: 350px;border-radius: 20px;">
+            <img src="https://media.gettyimages.com/id/dv617062/photo/skydiving.jpg?s=1024x1024&w=gi&k=20&c=-_z1XCu7IA3MTQMRolteA1APTC74oDz9da0DpW32omQ=" style="width: 760px;height: 350px;border-radius: 20px;">
         </div>
-        <div class="d" style="width: 500px;height: 900px;border-radius: 15px;background-color: transparent;">
-            <img src="https://images.pexels.com/photos/9955800/pexels-photo-9955800.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 500px;height: 700px; border-radius: 15px;">
-            <h2 style="margin-top: 10px; margin-left: 5px;text-align: center;">SURFING</h2>
-            <p style="font-size: 24px;text-align: center;margin-top: 5px;">Ride waves, chase the horizon.</p>
-            <a href="#" class="button">READ MORE</a>
-
-        </div>
-        <div class="d" style="width: 500px;height: 900px;border-radius: 15px;background-color: transparent;">
-            <img src="https://images.pexels.com/photos/29289207/pexels-photo-29289207/free-photo-of-vibrant-hot-air-balloon-over-cappadocia-s-landscape.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 500px;height: 700px; border-radius: 15px;">
-            <h2 style="margin-top: 10px; margin-left: 5px;text-align: center;">HOT AIR BALLOON</h2>
-            <p style="font-size: 24px;text-align: center;margin-top: 5px;">Soar high, drift with dreams.</p>
-            <a href="#" class="button">READ MORE</a>
-
-        </div>
-        <div class="d" style="width: 500px;height: 900px;border-radius: 15px;background-color: transparent;">
-            <img src="https://images.pexels.com/photos/3266821/pexels-photo-3266821.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 500px;height: 700px; border-radius: 15px;">
-            <h2 style="margin-top: 10px; margin-left: 5px;text-align: center;">SCUBA DIVING</h2>
-            <p style="font-size: 24px;text-align: center;margin-top: 5px;">Explore depths, breathe the wonder.</p>
-            <a href="#" class="button">READ MORE</a>
-
-        </div>
-        <div class="d" style="width: 500px;height: 900px;border-radius: 15px;background-color: transparent;">
-            <img src="https://images.pexels.com/photos/11440267/pexels-photo-11440267.jpeg?auto=compress&cs=tinysrgb&w=1200" style="width: 500px;height: 700px; border-radius: 15px;">
-            <h2 style="margin-top: 10px; margin-left: 5px;text-align: center;">BUNGEE JUMPING</h2>
-            <p style="font-size: 24px;text-align: center;margin-top: 5px;">Leap boldly, trust the cord.</p>
-            <a href="#" class="button">READ MORE</a>
-
-        </div>
-        <div class="d" style="width: 500px;height: 900px;border-radius: 15px;background-color: transparent;">
-            <img src="https://images.pexels.com/photos/2847362/pexels-photo-2847362.jpeg?auto=compress&cs=tinysrgb&w=1200" style="width: 500px;height: 700px; border-radius: 15px;">
-            <h2 style="margin-top: 10px; margin-left: 5px;text-align: center;">ROCK CLIMBING</h2>
-            <p style="font-size: 24px;text-align: center;margin-top: 5px;">Grip tight, conquer the heights.</p>
-            <a href="#" class="button">READ MORE</a>
-
-        </div>
-        <div class="d" style="width: 500px;height: 900px;border-radius: 15px;background-color: transparent;">
-            <img src="https://images.pexels.com/photos/917510/pexels-photo-917510.jpeg?auto=compress&cs=tinysrgb&w=1200" style="width: 500px;height: 700px; border-radius: 15px;">
-            <h2 style="margin-top: 10px; margin-left: 5px;text-align: center;">HIKING</h2>
-            <p style="font-size: 24px;text-align: center;margin-top: 5px;">Step forward, discover new paths.</p>
-            <a href="#" class="button">READ MORE</a>
-
-        </div>
-        <div class="d" style="width: 500px;height: 900px;border-radius: 15px;background-color: transparent;">
-            <img src="https://images.pexels.com/photos/3413678/pexels-photo-3413678.jpeg?auto=compress&cs=tinysrgb&w=1200" style="width: 500px;height: 700px; border-radius: 15px;">
-            <h2 style="margin-top: 10px; margin-left: 5px;text-align: center;">RAFTING</h2>
-            <p style="font-size: 24px;text-align: center;margin-top: 5px;">Paddle hard, flow with adventure</p>
-            <a href="#" class="button">READ MORE</a>
-
-        </div>
-        <div class="d" style="width: 500px;height: 900px;border-radius: 15px;background-color: transparent;">
-            <img src="https://images.pexels.com/photos/26757807/pexels-photo-26757807/free-photo-of-a-man-on-a-bicycle-with-a-dog.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 500px;height: 700px; border-radius: 15px;">
-            <h2 style="margin-top: 10px; margin-left: 5px;text-align: center;">MOUNTAIN BIKING</h2>
-            <p style="font-size: 24px;text-align: center;margin-top: 5px;">Pedal fast, conquer the trails.</p>
-            <a href="#" class="button">READ MORE</a>
-
-        </div>
-        <div class="d" style="width: 500px;height: 900px;border-radius: 15px;background-color: transparent;">
-            <img src="https://images.pexels.com/photos/5931168/pexels-photo-5931168.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 500px;height: 700px; border-radius: 15px;">
-            <h2 style="margin-top: 10px; margin-left: 5px;text-align: center;">HANG GLIDING</h2>
-            <p style="font-size: 24px;text-align: center;margin-top: 5px;">Glide freely, embrace the sky.</p>
-            <a href="#" class="button">READ MORE</a>
-
-        </div>
-        <div class="d" style="width: 500px;height: 900px;border-radius: 15px;background-color: transparent;">
-            <img src="https://images.pexels.com/photos/2016572/pexels-photo-2016572.jpeg?auto=compress&cs=tinysrgb&w=1200" style="width: 500px;height: 700px; border-radius: 15px;">
-            <h2 style="margin-top: 10px; margin-left: 5px;text-align: center;">SKIING</h2>
-            <p style="font-size: 24px;text-align: center;margin-top: 5px;">Carve the slopes, feel freedom.</p>
-            <a href="#" class="button">READ MORE</a>
-
-        </div>
-
-        <div class="d" style="width: 500px;height: 900px;border-radius: 15px;background-color: transparent;">
-            <img src="https://images.pexels.com/photos/2444444/pexels-photo-2444444.jpeg?auto=compress&cs=tinysrgb&w=1200" style="width: 500px;height: 700px; border-radius: 15px;">
-            <h2 style="margin-top: 10px; margin-left: 5px;text-align: center;">CAVE EXPLORATION</h2>
-            <p style="font-size: 24px;text-align: center;margin-top: 5px;">Discover darkness, uncover hidden wonders.</p>
-            <a href="#" class="button">READ MORE</a>
-        </div>
-    </div>
-    <h4 style="margin-top: 300px;font-size: 124px; text-align: center;">Thanks For Visiting</h4>
-    <div class="slider" style="margin-top: 100px;">
-        <div class="slider-track">
-            <div class="slide">
-                <img src="https://cdn.pixabay.com/photo/2021/08/20/19/49/boat-6561172_1280.jpg" alt="Image 1">
-            </div>
-            <div class="slide">
-                <img src="https://images.pexels.com/photos/10883501/pexels-photo-10883501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Image 2">
-            </div>
-            <div class="slide">
-                <img src="https://cdn.pixabay.com/photo/2023/01/11/19/53/hiking-7712678_1280.jpg" alt="Image 3">
-            </div>
-            <div class="slide">
-                <img src="https://cdn.pixabay.com/photo/2017/04/27/07/26/rock-climbing-2264698_1280.jpg" alt="Image 4">
-            </div>
-            <div class="slide">
-                <img src="https://cdn.pixabay.com/photo/2024/11/21/22/31/scuba-diver-9214912_1280.jpg" alt="Image 5">
-            </div>
-            <div class="slide">
-                <img src="https://cdn.pixabay.com/photo/2021/05/09/06/07/sunset-6240041_1280.jpg" alt="Image 6">
-            </div>
-            <div class="slide">
-                <img src="https://cdn.pixabay.com/photo/2015/07/13/21/02/flying-843813_1280.jpg" alt="Image 7">
-            </div>
-            <div class="slide">
-                <img src="https://cdn.pixabay.com/photo/2013/08/22/18/40/bungee-jumping-174787_1280.jpg" alt="Image 8">
-            </div>
-            <div class="slide">
-                <img src="" alt="Image 9">
-            </div>
-            <div class="slide">
-                <img src="https://cdn.pixabay.com/photo/2021/08/20/19/49/boat-6561172_1280.jpg" alt="Duplicate Image 1">
+        <div style="width: 250px;height: 350px;border-radius: 20px;background-color: gainsboro;"></div>
+        <div style="width: 500px;height: 350px;border-radius: 20px;background-color: gainsboro">
+            <h2 style="margin: 20px;font-size: 20px;">Experience the Nomads Difference in Your Travel Planning</h2>
+            <p style="margin: 20px;font-size: 15px;">This is the space to introduce the Services section. Briefly describe the types of services offered and highlight any special benefits or features.</p>
+            <div style="background-color: #000;width: 400px;height: 50px;text-align: center;border-radius: 25px;margin-top: 140px;margin-left: 65px;">
+                <h1><a href="#" style="background-color: #000;color: white;text-decoration: none;width: 500px;height: 25px;text-align: center;">BOOK YOUR SLOT</a></h1>
             </div>
         </div>
     </div>
-    <div class="container" style="margin-top: 500px; margin-bottom: 300px;border-bottom: #666;border-top: 0.3px solid rgb(92, 91, 91);">
-        <h1 style="margin-bottom: 150px;font-size: 64px;">WORDS FROM OUR CLIENTS</h1>
-        <!-- Testimonial 1 -->
-        <div class="testimonial-card">
-            <div class="image">
-                <img src="https://images.unsplash.com/photo-1730738228821-7c0b418443f5?q=80&w=3270&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Testimonial Image">
-            </div>
-            <div class="text-section">
-                <div class="title">Testimonials</div>
-                <p class="quote">
-                    I firmly believe that adventure education provides a great platform for students to unleash their inner strength and imbibe new skills. In today’s increasingly competitive world, there is a need to supplement academic excellence with strong characteristics
-                    and through hands-on learning, where students take accountability for their peers and think on the spot, they evolve into stronger personalities. I thoroughly endorse these programs for the 'beyond textbook' learning they provide to
-                    students.
-                </p>
-                <div class="author">
-                    Deepa Kumar<br>
-                    <span>Associate Director, Heritage Xperiential Learning School, Gurgaon</span>
-                </div>
-            </div>
+    <div style="margin-top: 150px;display: flex;margin-left: 20px;margin-right: 20px;">
+        <div style="width: 760px;height: 350px;border-radius: 20px;">
+            <img src="https://media.gettyimages.com/id/dv617062/photo/skydiving.jpg?s=1024x1024&w=gi&k=20&c=-_z1XCu7IA3MTQMRolteA1APTC74oDz9da0DpW32omQ=" style="width: 760px;height: 350px;border-radius: 20px;">
         </div>
-        <!-- Testimonial 2 -->
-        <div class="testimonial-card">
-            <div class="image">
-                <img src="https://plus.unsplash.com/premium_photo-1675127366598-f6c344e5233b?q=80&w=3216&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Testimonial Image">
-            </div>
-            <div class="text-section">
-                <div class="title">Testimonials</div>
-                <p class="quote">
-                    I firmly believe that adventure education provides a great platform for students to unleash their inner strength and imbibe new skills. In today’s increasingly competitive world, there is a need to supplement academic excellence with strong characteristics
-                    and through hands-on learning, where students take accountability for their peers and think on the spot, they evolve into stronger personalities. I thoroughly endorse these programs for the 'beyond textbook' learning they provide to
-                    students.
-                </p>
-                <div class="author">
-                    Deepa Kumar<br>
-                    <span>Associate Director, Heritage Xperiential Learning School, Gurgaon</span>
-                </div>
-            </div>
-        </div>
-        <!-- Testimonial 3 -->
-        <div class="testimonial-card">
-            <div class="image">
-                <img src="https://images.unsplash.com/photo-1658059492039-d18ecb54434a?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Testimonial Image">
-            </div>
-            <div class="text-section">
-                <div class="title">Testimonials</div>
-                <p class="quote">
-                    I firmly believe that adventure education provides a great platform for students to unleash their inner strength and imbibe new skills. In today’s increasingly competitive world, there is a need to supplement academic excellence with strong characteristics
-                    and through hands-on learning, where students take accountability for their peers and think on the spot, they evolve into stronger personalities. I thoroughly endorse these programs for the 'beyond textbook' learning they provide to
-                    students.
-                </p>
-                <div class="author">
-                    Deepa Kumar<br>
-                    <span>Associate Director, Heritage Xperiential Learning School, Gurgaon</span>
-                </div>
-            </div>
-        </div>
-        <!-- Testimonial 4 -->
-        <div class="testimonial-card">
-            <div class="image">
-                <img src="https://images.unsplash.com/photo-1723055446659-a9c9adcb651d?q=80&w=3232&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Testimonial Image">
-            </div>
-            <div class="text-section">
-                <div class="title">Testimonials</div>
-                <p class="quote">
-                    I firmly believe that adventure education provides a great platform for students to unleash their inner strength and imbibe new skills. In today’s increasingly competitive world, there is a need to supplement academic excellence with strong characteristics
-                    and through hands-on learning, where students take accountability for their peers and think on the spot, they evolve into stronger personalities. I thoroughly endorse these programs for the 'beyond textbook' learning they provide to
-                    students.
-                </p>
-                <div class="author">
-                    Deepa Kumar<br>
-                    <span>Associate Director, Heritage Xperiential Learning School, Gurgaon</span>
-                </div>
-            </div>
-        </div>
-        <!-- Testimonial 5 -->
-        <div class="testimonial-card">
-            <div class="image">
-                <img src="https://images.unsplash.com/photo-1723055446663-c3f4359be3e3?q=80&w=3305&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Testimonial Image">
-            </div>
-            <div class="text-section">
-                <div class="title">Testimonials</div>
-                <p class="quote">
-                    I firmly believe that adventure education provides a great platform for students to unleash their inner strength and imbibe new skills. In today’s increasingly competitive world, there is a need to supplement academic excellence with strong characteristics
-                    and through hands-on learning, where students take accountability for their peers and think on the spot, they evolve into stronger personalities. I thoroughly endorse these programs for the 'beyond textbook' learning they provide to
-                    students.
-                </p>
-                <div class="author">
-                    Deepa Kumar<br>
-                    <span>Associate Director, Heritage Xperiential Learning School, Gurgaon</span>
-                </div>
+        <div style="width: 250px;height: 350px;border-radius: 20px;background-color: gainsboro;"></div>
+        <div style="width: 500px;height: 350px;border-radius: 20px;background-color: gainsboro">
+            <h2 style="margin: 20px;">Experience the Nomads Difference in Your Travel Planning</h2>
+            <p style="margin: 20px;">This is the space to introduce the Services section. Briefly describe the types of services offered and highlight any special benefits or features.</p>
+            <div style="background-color: #000;width: 400px;height: 50px;text-align: center;border-radius: 25px;margin-top: 140px;margin-left: 65px;">
+                <h1><a href="#" style="background-color: #000;color: white;text-decoration: none;width: 500px;height: 25px;text-align: center;">BOOK YOUR SLOT</a></h1>
             </div>
         </div>
     </div>
+    <div style="margin-top: 150px;display: flex;margin-left: 20px;margin-right: 20px;">
+        <div style="width: 760px;height: 350px;border-radius: 20px;">
+            <img src="https://media.gettyimages.com/id/dv617062/photo/skydiving.jpg?s=1024x1024&w=gi&k=20&c=-_z1XCu7IA3MTQMRolteA1APTC74oDz9da0DpW32omQ=" style="width: 760px;height: 350px;border-radius: 20px;">
+        </div>
+        <div style="width: 250px;height: 350px;border-radius: 20px;background-color: gainsboro;"></div>
+        <div style="width: 500px;height: 350px;border-radius: 20px;background-color: gainsboro">
+            <h2 style="margin: 20px;">Experience the Nomads Difference in Your Travel Planning</h2>
+            <p style="margin: 20px;">This is the space to introduce the Services section. Briefly describe the types of services offered and highlight any special benefits or features.</p>
+            <div style="background-color: #000;width: 400px;height: 50px;text-align: center;border-radius: 25px;margin-top: 140px;margin-left: 65px;">
+                <h1><a href="#" style="background-color: #000;color: white;text-decoration: none;width: 500px;height: 25px;text-align: center;">BOOK YOUR SLOT</a></h1>
+            </div>
+
+        </div>
+    </div>
+    <div style="margin-top: 150px;display: flex;margin-left: 20px;margin-right: 20px;">
+        <div style="width: 760px;height: 350px;border-radius: 20px;">
+            <img src="https://media.gettyimages.com/id/dv617062/photo/skydiving.jpg?s=1024x1024&w=gi&k=20&c=-_z1XCu7IA3MTQMRolteA1APTC74oDz9da0DpW32omQ=" style="width: 760px;height: 350px;border-radius: 20px;">
+        </div>
+        <div style="width: 250px;height: 350px;border-radius: 20px;background-color: gainsboro;"></div>
+        <div style="width: 500px;height: 350px;border-radius: 20px;background-color: gainsboro">
+            <h2 style="margin: 20px;">Experience the Nomads Difference in Your Travel Planning</h2>
+            <p style="margin: 20px;">This is the space to introduce the Services section. Briefly describe the types of services offered and highlight any special benefits or features.</p>
+            <div style="background-color: #000;width: 400px;height: 50px;text-align: center;border-radius: 25px;margin-top: 140px;margin-left: 65px;">
+                <h1><a href="#" style="background-color: #000;color: white;text-decoration: none;width: 500px;height: 25px;text-align: center;">BOOK YOUR SLOT</a></h1>
+            </div>
+
+        </div>
+    </div>
+    <div style="margin-top: 150px;display: flex;margin-left: 20px;margin-right: 20px;">
+        <div style="width: 760px;height: 350px;border-radius: 20px;">
+            <img src="https://media.gettyimages.com/id/dv617062/photo/skydiving.jpg?s=1024x1024&w=gi&k=20&c=-_z1XCu7IA3MTQMRolteA1APTC74oDz9da0DpW32omQ=" style="width: 760px;height: 350px;border-radius: 20px;">
+        </div>
+        <div style="width: 250px;height: 350px;border-radius: 20px;background-color: gainsboro;"></div>
+        <div style="width: 500px;height: 350px;border-radius: 20px;background-color: gainsboro">
+            <h2 style="margin: 20px;">Experience the Nomads Difference in Your Travel Planning</h2>
+            <p style="margin: 20px;">This is the space to introduce the Services section. Briefly describe the types of services offered and highlight any special benefits or features.</p>
+            <div style="background-color: #000;width: 400px;height: 50px;text-align: center;border-radius: 25px;margin-top: 140px;margin-left: 65px;">
+                <h1><a href="#" style="background-color: #000;color: white;text-decoration: none;width: 500px;height: 25px;text-align: center;">BOOK YOUR SLOT</a></h1>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <div style="margin-top: 150px;display: flex;margin-left: 20px;margin-right: 20px;">
+        <div style="width: 760px;height: 350px;border-radius: 20px;">
+            <img src="https://media.gettyimages.com/id/dv617062/photo/skydiving.jpg?s=1024x1024&w=gi&k=20&c=-_z1XCu7IA3MTQMRolteA1APTC74oDz9da0DpW32omQ=" style="width: 760px;height: 350px;border-radius: 20px;">
+        </div>
+        <div style="width: 250px;height: 350px;border-radius: 20px;background-color: gainsboro;"></div>
+        <div style="width: 500px;height: 350px;border-radius: 20px;background-color: gainsboro">
+            <h2 style="margin: 20px;">Experience the Nomads Difference in Your Travel Planning</h2>
+            <p style="margin: 20px;">This is the space to introduce the Services section. Briefly describe the types of services offered and highlight any special benefits or features.</p>
+            <div style="background-color: #000;width: 400px;height: 50px;text-align: center;border-radius: 25px;margin-top: 140px;margin-left: 65px;">
+                <h1><a href="#" style="background-color: #000;color: white;text-decoration: none;width: 500px;height: 25px;text-align: center;">BOOK YOUR SLOT</a></h1>
+            </div>
+
+        </div>
+    </div>
+    <div style="margin-top: 150px;display: flex;margin-left: 20px;margin-right: 20px;">
+        <div style="width: 760px;height: 350px;border-radius: 20px;">
+            <img src="https://media.gettyimages.com/id/dv617062/photo/skydiving.jpg?s=1024x1024&w=gi&k=20&c=-_z1XCu7IA3MTQMRolteA1APTC74oDz9da0DpW32omQ=" style="width: 760px;height: 350px;border-radius: 20px;">
+        </div>
+        <div style="width: 250px;height: 350px;border-radius: 20px;background-color: gainsboro;"></div>
+        <div style="width: 500px;height: 350px;border-radius: 20px;background-color: gainsboro">
+            <h2 style="margin: 20px;">Experience the Nomads Difference in Your Travel Planning</h2>
+            <p style="margin: 20px;">This is the space to introduce the Services section. Briefly describe the types of services offered and highlight any special benefits or features.</p>
+            <div style="background-color: #000;width: 400px;height: 50px;text-align: center;border-radius: 25px;margin-top: 140px;margin-left: 65px;">
+                <h1><a href="#" style="background-color: #000;color: white;text-decoration: none;width: 500px;height: 25px;text-align: center;">BOOK YOUR SLOT</a></h1>
+            </div>
+
+        </div>
+    </div>
+
+    <div style="margin-top: 150px;display: flex;margin-left: 20px;margin-right: 20px;">
+        <div style="width: 760px;height: 350px;border-radius: 20px;">
+            <img src="https://media.gettyimages.com/id/dv617062/photo/skydiving.jpg?s=1024x1024&w=gi&k=20&c=-_z1XCu7IA3MTQMRolteA1APTC74oDz9da0DpW32omQ=" style="width: 760px;height: 350px;border-radius: 20px;">
+        </div>
+
+        <div style="width: 250px;height: 350px;border-radius: 20px;background-color: gainsboro;"></div>
+        <div style="width: 500px;height: 350px;border-radius: 20px;background-color: gainsboro">
+            <h2 style="margin: 20px;">Experience the Nomads Difference in Your Travel Planning</h2>
+            <p style="margin: 20px;">This is the space to introduce the Services section. Briefly describe the types of services offered and highlight any special benefits or features.</p>
+            <div style="background-color: #000;width: 400px;height: 50px;text-align: center;border-radius: 25px;margin-top: 140px;margin-left: 65px;">
+                <h1><a href="#" style="background-color: #000;color: white;text-decoration: none;width: 500px;height: 25px;text-align: center;">BOOK YOUR SLOT</a></h1>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- work here  -->
+
+
+
+    <h1 style="font-size: 60px;margin-top: 120px;margin-left: 50px;">Explore More</h1>
+    <div style="margin-top: 20px;display: flex;margin-left: 20px;margin-right: 20px;justify-content: space-around;">
+        <div style="width: 350px;height: 650px;border-radius: 20px;background-color: gainsboro;">
+            <h1 style="text-align: center;margin-top: 15px;">Rafting</h1>
+            <img src="https://images.pexels.com/photos/3413678/pexels-photo-3413678.jpeg?auto=compress&cs=tinysrgb&w=1200" style="width: 295px;height: 450px; margin-top: 30px;margin-left: 30px;margin-right: 40px;">
+            <div style="background-color: #000;width: 330px;height: 50px;text-align: center;border-radius: 25px;margin-top: 20px;margin-left: 10px;">
+                <h1><a href="#" style="background-color: #000;color: white;text-decoration: none;width: 500px;height: 25px;text-align: center;">BOOK YOUR SLOT</a></h1>
+            </div>
+        </div>
+        <div style="width: 350px;height: 650px;border-radius: 20px;background-color: gainsboro;">
+            <h1 style="text-align: center;margin-top: 15px;">Surfing</h1>
+            <img src="https://images.pexels.com/photos/9955800/pexels-photo-9955800.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px;height: 450px;margin-top: 30px;margin-left: 30px;margin-right: 40px;">
+            <div style="background-color: #000;width: 330px;height: 50px;text-align: center;border-radius: 25px;margin-top: 20px;margin-left: 10px;">
+                <h1><a href="#" style="background-color: #000;color: white;text-decoration: none;width: 500px;height: 25px;text-align: center;">BOOK YOUR SLOT</a></h1>
+            </div>
+        </div>
+        <div style="width: 350px;height: 650px;border-radius: 20px;background-color: gainsboro;">
+            <h1 style="text-align: center;margin-top: 15px;">Scuba Diving</h1>
+            <img src="https://images.pexels.com/photos/3266821/pexels-photo-3266821.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px;height: 450px; margin-top: 30px;margin-left: 30px;margin-right: 40px;">
+            <div style="background-color: #000;width: 330px;height: 50px;text-align: center;border-radius: 25px;margin-top: 20px;margin-left: 10px;">
+                <h1><a href="#" style="background-color: #000;color: white;text-decoration: none;width: 500px;height: 25px;text-align: center;">BOOK YOUR SLOT</a></h1>
+            </div>
+        </div>
+        <div style="width: 350px;height: 650px;border-radius: 20px;background-color: gainsboro;">
+            <h1 style="text-align: center;margin-top: 15px;">Mountain Biking</h1>
+            <img src="https://images.pexels.com/photos/26757807/pexels-photo-26757807/free-photo-of-a-man-on-a-bicycle-with-a-dog.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px;height: 450px;margin-top: 30px;margin-left: 30px;margin-right: 40px;">
+            <div style="background-color: #000;width: 330px;height: 50px;text-align: center;border-radius: 25px;margin-top: 20px;margin-left: 10px;">
+                <h1><a href="#" style="background-color: #000;color: white;text-decoration: none;width: 500px;height: 25px;text-align: center;">BOOK YOUR SLOT</a></h1>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- end here -->
+
+
+    <div class="testimonial-section" style="margin-top: 100px;">
+        <h1><span class="icon">⭐</span> Our NoMads Say it Best</h1>
+        <div class="testimonial-container">
+
+            <div class="testimonial-card">
+                <div class="card-header">
+                    <span class="label">Name.</span>
+                    <span class="value">Michael Jake</span>
+                </div>
+                <div class="card-header">
+                    <span class="label">Date.</span>
+                    <span class="value">2035</span>
+                </div>
+                <div class="rating">
+                    <span>⭐ 4.8 / 5</span>
+                </div>
+                <p>Use this space to share a testimonial quote about the business, its products or its services. Insert a quote from a real customer or client here to build trust and win over site visitors.</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="card-header">
+                    <span class="label">Name.</span>
+                    <span class="value">Sarah Evans</span>
+                </div>
+                <div class="card-header">
+                    <span class="label">Date.</span>
+                    <span class="value">2035</span>
+                </div>
+                <div class="rating">
+                    <span>⭐ 4.9 / 5</span>
+                </div>
+                <p>Use this space to share a testimonial quote about the business, its products or its services. Insert a quote from a real customer or client here to build trust and win over site visitors.</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="card-header">
+                    <span class="label">Name.</span>
+                    <span class="value">Benjamin Ansel</span>
+                </div>
+                <div class="card-header">
+                    <span class="label">Date.</span>
+                    <span class="value">2035</span>
+                </div>
+                <div class="rating">
+                    <span>⭐ 4.7 / 5</span>
+                </div>
+                <p>Use this space to share a testimonial quote about the business, its products or its services. Insert a quote from a real customer or client here to build trust and win over site visitors.</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="card-header">
+                    <span class="label">Name.</span>
+                    <span class="value">Emily Davis</span>
+                </div>
+                <div class="card-header">
+                    <span class="label">Date.</span>
+                    <span class="value">2035</span>
+                </div>
+                <div class="rating">
+                    <span>⭐ 4.8 / 5</span>
+                </div>
+                <p>Use this space to share a testimonial quote about the business, its products or its services. Insert a quote from a real customer or client here to build trust and win over site visitors.</p>
+            </div>
+        </div>
+    </div>
+    <h1 style="font-size: 70px;color: skyblue;margin-top: 120px;margin-bottom: 20px;">➤➤YOUR DREAM ADVENTURE IS JUST AROUND THE CORNER</h1>
+    <div style="display: flex;justify-content: space-between;">
+        <div style="width: 335px;height: 700px;background-color: gainsboro;border-radius: 20px;margin-left: 40px;">
+            <p style="margin-top: 15px;font-size: 20px;margin-left: 10px;margin-right: 10px;">This is the space to introduce visitors to the business or brand. Briefly explain who's behind it, what it does and what makes it unique. Share its core values and what this site has to offer.</p>
+        </div>
+        <div style="width: 1125px;height: 700px;border-radius: 20px;">
+            <img src="https://images.pexels.com/photos/631986/pexels-photo-631986.jpeg?auto=compress&cs=tinysrgb&w=1200" style="height: 700px;width: 1150;border-radius: 20px;">
+        </div>
+
+    </div>
+    <footer class="footer-section" style="margin-top: 100px;">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h2>Get exclusive updates<br>Subscribe to our newsletter</h2>
+                <p>Sign up to our newsletter to receive the latest travel updates.</p>
+                <form class="newsletter-form">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                    <div class="privacy-checkbox">
+                        <input type="checkbox" id="privacy" name="privacy">
+                        <label for="privacy">By subscribing, you agree to our Privacy Policy.</label>
+                    </div>
+                    <button type="submit" class="subscribe-button">SUBSCRIBE</button>
+                </form>
+            </div>
+            <div class="footer-right">
+                <ul>
+                    <li><a href="#">Adventure Sports</a></li>
+                    <li><a href="#">Adventure Near You</a></li>
+                    <li><a href="#">Magazine</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2035 by Hoopup.</p>
+        </div>
+    </footer>
 </body>
 
-<div style="background-color: rgb(0, 0, 0);">
-    <div class="grey">
-        <div style="margin-left: 100px ;">
-            <ul>
-                <li><a href="# ">Contact Us</a></li>
-                <li><a href="# ">Find Your Country</a></li>
-                <li><a href="# ">Site Map</a></li>
-                <li><a href="# ">Privacy</a></li>
-                <li><a href="# ">Notice</a></li>
-                <li><a href="# ">Press Release</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="cat">
-        <div class="vehicals" ; ">
-                <h3>VEHICALS</h3>
-                <ul>
-                    <li><a href="# ">Jeep Compass</a></li>
-                    <li><a href="# ">Jeep Wrangler</a></li>
-                    <li><a href="# ">New Jeep Meridian</a></li>
-                    <li><a href="# ">Jeep Grand Cherokee</a></li>
-                </ul>
-            
-            </div>
-            <div class="vehicals ">
-                <h3>RESEARCH</h3>
-                <ul>
-                    <li><a href="# ">Build & Price</a></li>
-                    <li><a href="# ">Get a Brochure</a></li>
-                    <li><a href="# ">Sign Up for Updates</a></li>
-                    <li><a href="# ">Corporate Enquiries</a></li>
-                </ul>
-            </div>
-            <div class="vehicals ">
-                <h3>LOCATE</h3>
-                <ul>
-                    <li><a href="# ">Find a Dealer</a></li>
-                    <li><a href="# ">Schedule a Test Drive</a></li>
-                </ul>
-            </div>
-            <div class="vehicals ">
-                <h3> JEEP® BRAND ENTHUSIASTS</h3>
-                <ul>
-                    <li><a href="# ">Sign Up for Jeep Life</a></li>
-                    <li><a href="# ">Jeep® Social Hub</a></li>
-                    <li><a href="# ">Jeep® History</a></li>
-                    <li><a href="# ">Commercials</a></li>
-                </ul>
-            </div>
-            <div class="vehicals ">
-                <h3>PARTNER WITH US</h3>
-                <ul>
-                    <li><a href="# ">Dealership Enquiry</a></li>
-                    <li><a href="# ">Get a Brochure</a></li>
-                    <li><a href="# ">Sign Up for Updates</a></li>
-                    <li><a href="# ">Corporate Enquiries</a></li>
-                </ul>
-            </div>
-        </div>
-        <div style="border-top: 0.3px solid rgb(92, 91, 91);height: 50px;width: 100%; "></div>
-        <div class="end ">
-            <h3>STELLANTIS</h3>
-            <p class="a ">© 2024 FCA India Automobiles Private Limited</p>
-            <p class="b ">FCA India Automobiles Private Limited ("FCA India ") reserves the right to change without notice the colors, equipment specifications, prices and models. Accessories shown in the pictures and features mentioned may not be a part of the standard equipment and could differ with variants. Actual colour of vehicle and upholstery might differ. Images are for illustration purpose only. All products offered in India are right hand drive vehicles.</p>
-        </div>
-        <div style="border-bottom: 0.4px solid white;height: 10px; width: 100%; "></div>
-    </div>
-</body>
 </html>
