@@ -1,237 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        
-        .hero {
-            width: 100%;
-            height: 100vh;
-            background-image: linear-gradient(rgba(12, 3, 51, 0.3), rgba(12, 3, 51, 0.3));
-            position: relative;
-            padding: 0 5%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        nav {
-            width: 90%;
-            height: 100px;
-            background-color: #ffffff;
-            opacity: 0.4;
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 20px 5%;
-            display: flex;
-            align-content: center;
-            justify-content: space-between;
-        }
-        
-        nav ul li {
-            list-style: none;
-            display: inline-block;
-            margin-left: 40px;
-            margin-top: 25px;
-        }
-        
-        nav ul li a {
-            color: rgb(0, 0, 0);
-            text-decoration: none;
-            font-size: 17px;
-        }
-        
-        .container {
-            display: grid;
-            justify-content: center;
-            row-gap: 20px;
-            column-gap: 5px;
-            grid-template-columns: repeat(4, 350px);
-            grid-template-rows: repeat(3, 200px);
-            margin: 50px auto;
-        }
-        
-        .box {
-            border: 2px solid transparent;
-            padding: 12px;
-        }
-        
-        #box-1 {
-            grid-row-start: 1;
-            grid-row-end: 5;
-        }
-        
-        #box-2 {
-            grid-column: 2 / span 2;
-        }
-        
-        #box-6 {
-            grid-row: 2 / span 2;
-        }
-        
-        .text-content {
-            margin: 50px auto;
-            padding: 20px;
-            border: 0.5px solid rgb(113, 113, 113);
-            border-radius: 10px;
-            max-width: 1200px;
-            background-color: #f9f9f9;
-        }
-        
-        h2 {
-            font-size: 30px;
-            text-align: center;
-        }
-        
-        p {
-            font-size: 20px;
-            text-align: justify;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Bilbo+Swash+Caps&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=League+Script&family=Libre+Caslon+Display&family=Molle&family=Playwrite+PE:wght@100..400&display=swap" rel="stylesheet">
 </head>
+<style>
+    h1,
+    h2,
+    h3,
+    p,
+    h4,
+    h5,
+    h6 {
+        font-family: "Libre Caslon Display", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    ul li,
+    h2 {
+        list-style: none;
+        display: inline-block;
+        margin-left: 50px;
+        margin-right: 10px;
+        text-align: right;
+        margin-top: 10px;
+    }
+    
+    ul li a,
+    h2 {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-size: 17px;
+    }
+    
+    details {
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+    
+    summary {
+        cursor: pointer;
+        font-weight: bold;
+    }
+    
+    details:not(:last-of-type)::after {
+        content: "";
+        display: block;
+        border-bottom: 2px dotted #888;
+        margin: 10px 0;
+    }
+    
+    .footer-section {
+        background-color: #f9a32b;
+        padding: 80px 40px;
+        color: #333;
+    }
+    
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .footer-left {
+        flex: 1;
+        margin-right: 40px;
+        max-width: 600px;
+    }
+    
+    .footer-left h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+    
+    .footer-left p {
+        margin-bottom: 30px;
+        font-size: 18px;
+        color: #222;
+    }
+    
+    .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .newsletter-form label {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    .newsletter-form input[type="email"] {
+        padding: 15px;
+        border: none;
+        border-bottom: 1px solid #333;
+        outline: none;
+        font-size: 18px;
+        background-color: transparent;
+    }
+    
+    .privacy-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 16px;
+    }
+    
+    .subscribe-button {
+        background-color: #333;
+        color: #fff;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    .subscribe-button:hover {
+        background-color: #555;
+    }
+    
+    .footer-right {
+        flex: 1;
+        display: flex;
+        gap: 40px;
+    }
+    
+    .footer-right ul {
+        list-style: none;
+    }
+    
+    .footer-right li {
+        margin-bottom: 15px;
+    }
+    
+    .footer-right a {
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    
+    .footer-right a:hover {
+        text-decoration: underline;
+    }
+    
+    .footer-bottom {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 14px;
+    }
+    
+    .footer-bottom a {
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    .footer-bottom a:hover {
+        text-decoration: underline;
+    }
+    
+    .gold:hower {
+        background-color: #ffb145;
+    }
+</style>
+
 <body>
-    <div>
-    <video autoplay muted loop style="width: 100%; height: 700px; object-fit: cover;">
-        <source src="GoPro Awards_ MTB with Hot Air Balloons in Cappadocia - GoPro (1080p, h264, youtube).mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <nav>
-        <img src="image copy 5.png" class="logo" style="width: 80px; height: 80px;">
-        <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">ADVENTURE SPORTS</a></li>
-            <li><a href="#">LOCATION</a></li>
-            <li><a href="#">CONTACT</a></li>
-            <li><a href="#">ABOUT US</a></li>
-        </ul>
-    </nav>
-</div>
-    
-    <div class="container">
-        <div class="box" id="box-1">
-            <img src="https://images.pexels.com/photos/28359737/pexels-photo-28359737/free-photo-of-sunlight-shines-through-a-cave-with-a-waterfall.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 335px;height: 640px;">
+    <div class="top" style="display: flex;">
+        <div style="background-color: gainsboro;height: 40px;width: 400px;margin-top: 30px; display: flex; border-radius: 20px;margin-left: 20px;">
+            <h2><a href="index.html">HOOPUP</a></h2>
         </div>
-        <div class="box" id="box-2">
-            <img src="https://cdn.pixabay.com/photo/2017/09/15/02/22/fantasy-2750995_1280.jpg" style="width:700px ; height: 200px;">
-            
+        <div style="background-color: gainsboro;height: 40px;width: 1000px;margin-top: 30px;display: flex;border-radius: 20px;margin-left: 10px;text-align: end;margin-right: 10px;">
+            <ul>
+                <li><a href="#">Explore Sports</a></li>
+                <li><a href="#">Plans For You</a></li>
+                <li><a href="#">Magazine</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+        <div style="background-color: black;color: white;height: 40px;width: 400px;margin-top: 30px;display: flex;border-radius: 20px;margin-left: 20px;">
+            <ul>
+                <li style="color: white;"><a href="#" style="color: white;">EXPLORE RIGHT NOW</a></li>
+            </ul>
+        </div>
+    </div>
+    <h1 style="font-size: 100px;margin-top: 50px;margin-left: 20px;">PLAN YOUR TRIP</h1>
+    <h1 style="color: rgb(88, 207, 254);font-size: 100px;margin-left: 20px;">➢ THE EXPLORATION SHOULD NEVER STOP. </h1>
+    <div style="display: flex;justify-content: space-between;">
+        <div style="width: 730px;height: 700px;background-color: gainsboro;border-radius: 20px;margin-left: 40px;">
+
+
+            <img src="https://i.natgeofe.com/n/948ee8a1-c014-4059-a3c6-8fdf40f774ba/GettyImages-1345295504.jpg" style="height: 700px;width: 730px;border-radius: 20px;">
+
+
+        </div>
+        <div style="width: 730px;height: 700px;border-radius: 20px;background-color: #E8A844;">
+
+            <details open>
+                <summary style="margin-top: 30px;">Bungee Jumping</summary>
+                <p>Cave exploration, or spelunking, is an adventure into the hidden world beneath our feet. It involves traversing underground passageways, navigating complex rock formations, and discovering secrets that have remained untouched for millions of years. This thrilling pursuit offers both the excitement of uncharted territory and the challenge of extreme environments, from narrow crevices to expansive underground chambers.</p>
+            </details>
+
+            <details>
+                <summary>Discription</summary>
+                <p>Embark on an Underground Adventure: Cave Exploration
+                    Step into the mysterious world beneath the surface, where nature's secrets lie hidden in the dark. Cave exploration, or caving, is the perfect blend of adventure, discovery, and wonder. Whether you're a seasoned explorer or a curious beginner, the underground world is waiting to be uncovered!
+                    
+                    Why Explore Caves?
+                    Nature’s Art Gallery: Marvel at stunning stalactites, stalagmites, and crystal formations that have taken millennia to form.
+                    Hidden Ecosystems: Encounter unique flora and fauna that thrive in these otherworldly habitats.
+                    Unmatched Adventure: Navigate through narrow passages, underground rivers, and massive caverns.
+                    Timeless Mysteries: Explore ancient caves with historical and geological significance.
+                    Our Cave Exploration Adventures
+                    Guided Tours: Perfect for beginners, our guided tours ensure safety while you enjoy the beauty of caves.
+                    Adventure Caving: For thrill-seekers, we offer challenging expeditions involving climbing, rappelling, and water exploration.
+                    Educational Trips: Learn about the geology, history, and ecology of caves with our expert guides.
+                    Top Caving Destinations We Cover
+                    Meghalaya: Home to some of Asia's longest and most stunning caves, including Mawsmai Cave and Liat Prah.
+                    Badami, Karnataka: Famous for its ancient rock-cut cave temples.
+                    Ajanta and Ellora, Maharashtra: Explore centuries-old cave art and architecture.
+                    Borra Caves, Andhra Pradesh: Known for their striking stalactites and stalagmites.
+                    Amarnath Cave, Jammu & Kashmir: A sacred pilgrimage site with natural ice formations.</p>
+            </details>
+
+            <details>
+                <summary>Elegilibity</summary>
+                <p> Age Limit
+                    Minimum Age: Most caves allow participants to be at least 12 years old for basic tours, although some operators may allow younger children if accompanied by an adult.
+                    Maximum Age: There’s typically no upper age limit for basic tours, but participants should be in good physical health. For more challenging caves, there may be age restrictions based on physical fitness.
+                    2. Physical Fitness
+                    Basic Tours: Participants should be in generally good health, as caves may require some walking, climbing, or crawling.
+                    Adventure/Technical Caving: For more strenuous caving activities, participants should have good stamina, agility, and flexibility. Caves might involve navigating tight spaces, climbing, rappelling, and traversing uneven surfaces.
+                    Health Considerations:
+                    Individuals with heart conditions, respiratory problems, or significant mobility issues may be advised against participating.
+                    Pregnant women are usually not allowed on more strenuous caving adventures due to the physical demands and the environment.
+                    People with severe claustrophobia or anxiety may find some caves challenging, especially those with tight or confined spaces.
+                    3. Weight Limits
+                    Some operators or caves may have weight limits for safety reasons, particularly for guided tours that involve crawling or climbing.
+                    Typical weight limits are usually around 100–120 kg (220–265 lbs), but this can vary depending on the cave and operator.
+                    4. Experience Level
+                    Beginner Caving: Many caves offer easy-to-navigate routes that don’t require prior experience. These are suitable for first-time explorers and families.
+                    Advanced/Technical Caving: For more challenging caves, such as those requiring rappelling, abseiling, or extensive crawling, prior experience or training may be required. Some operators offer beginner-to-advanced training programs for those who wish to explore deeper or more difficult caves.
+                    5. Safety and Training
+                    Guided Tours: Most caving trips are guided, meaning participants don’t need any prior technical knowledge, but will receive a safety briefing and instructions before starting the tour.
+                    Advanced Caving: For caving that involves complex maneuvers or spelunking (exploring unexplored caves), participants are usually required to undergo training courses or certifications to ensure safety.
+                    6. Alcohol and Drug Policy
+                    You must be sober and free from alcohol or drugs before participating in any cave exploration, as it can impair judgment and pose safety risks.</p>
+            </details>
+
+            <details>
+                <summary>Location</summary>
+                <p>Meghalaya is one of the top caving destinations in India and Asia, known for its stunning limestone caves. The state is home to some of the longest and most beautiful caves in India.
+
+                    Famous Caves: Sohra (Cherrapunji) and Mawsmai Cave, Liat Prah, Siju.
+                    Best for: Beginners to advanced cavers, with options ranging from simple tours to more challenging explorations.
+                     Slovenia
+                    Slovenia is famous for its extensive cave systems and stunning karst landscapes. The country has been a hub for cave explorers for decades.
+                    
+                    Famous Caves: Postojna Cave (one of the largest and most visited), Škocjan Caves (UNESCO World Heritage Site), and Krizna Cave.
+                    Best for: Adventurous travelers looking for well-organized guided tours and more technical caving routes.
+                     New Zealand
+                    New Zealand offers a variety of caves, including limestone caves, glowworm caves, and more challenging speleological adventures.
+                    
+                    Famous Caves: Waitomo Caves (world-famous for its glowworms), Ruakuri Cave, and Te Anau Caves.
+                    Best for: Adventure seekers and families. The glowworm caves in Waitomo are popular with tourists, while other caves offer more technical challenges.
+                     Kentucky, USA
+                    Kentucky is home to the Mammoth Cave National Park, the longest known cave system in the world.
+                    
+                    Famous Caves: Mammoth Cave, Carlsbad Caverns (New Mexico), Lost River Cave.
+                    Best for: Both casual tourists and serious cavers, with options for both guided tours and self-guided exploration.
+                     Mexico
+                    Mexico offers some of the most incredible and unique cave systems, particularly in the Yucatán Peninsula.
+                    
+                    Famous Caves: Cenotes (natural sinkholes and cave systems), Cave of Swallows (Cueva de las Golondrinas) in San Luis Potosí.
+                    Best for: Adventurers looking for challenging dives and underground river exploration, as well as those interested in cenote swimming and cultural exploration.</p>
+            </details>
+
+            <script>
+                const detailsElements = document.querySelectorAll("details");
+
+                detailsElements.forEach((details) => {
+                    details.addEventListener("click", function() {
+
+                        detailsElements.forEach((otherDetails) => {
+                            if (otherDetails !== details) {
+                                otherDetails.removeAttribute("open");
+                            }
+                        });
+                    });
+                });
+            </script>
+            <p style="margin-top: 15px;font-size: 20px;margin-left: 10px;margin-right: 10px;">This is the space to introduce visitors to the business or brand. Briefly explain who's behind it, what it does and what makes it unique. Share its core values and what this site has to offer.</p>
         </div>
 
-        <div class="box" id="box-3">
-            <img src="https://images.pexels.com/photos/2905882/pexels-photo-2905882.jpeg?auto=compress&cs=tinysrgb&w=1200" style="height: 210px;width: 370px;">
-        </div>
-        <div class="box" id="box-4">
-            <img src="https://images.pexels.com/photos/20263251/pexels-photo-20263251/free-photo-of-silhouette-of-a-person-standing-in-an-ice-cave.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="height: 210px;width: 330px;">
-           
-        </div>
 
-        <div class="box" id="box-5">
-            <img src="https://cdn.pixabay.com/photo/2017/03/31/18/39/feengrotten-2192134_1280.jpg" style="height: 210px;width: 370px;">
-        </div>
-        <div class="box" id="box-6">
-            <img src="https://cdn.pixabay.com/photo/2016/11/18/17/02/cave-1835823_1280.jpg" style="height:420px ; width: 330px ;">
-        </div>
-        <div class="box" id="box-7">
-            <img src="https://cdn.pixabay.com/photo/2022/09/16/23/10/cave-7459830_1280.jpg" style="height:210px ; width: 330px ;">
-        </div>
-        
-        <div class="box" id="box-8">
-            <img src="https://cdn.pixabay.com/photo/2020/07/26/07/20/cave-5438620_1280.jpg" style="height:210px ; width: 370px ;"> 
-        </div>
+
+
+
+
+
 
     </div>
-   <div class="text-content">
-       <h2> Cave Exploration</h2>
-    
-    <p>
-        Embark on an Underground Adventure: Cave Exploration
-Step into the mysterious world beneath the surface, where nature's secrets lie hidden in the dark. Cave exploration, or caving, is the perfect blend of adventure, discovery, and wonder. Whether you're a seasoned explorer or a curious beginner, the underground world is waiting to be uncovered!
-
-Why Explore Caves?
-Nature’s Art Gallery: Marvel at stunning stalactites, stalagmites, and crystal formations that have taken millennia to form.
-Hidden Ecosystems: Encounter unique flora and fauna that thrive in these otherworldly habitats.
-Unmatched Adventure: Navigate through narrow passages, underground rivers, and massive caverns.
-Timeless Mysteries: Explore ancient caves with historical and geological significance.
-Our Cave Exploration Adventures
-Guided Tours: Perfect for beginners, our guided tours ensure safety while you enjoy the beauty of caves.
-Adventure Caving: For thrill-seekers, we offer challenging expeditions involving climbing, rappelling, and water exploration.
-Educational Trips: Learn about the geology, history, and ecology of caves with our expert guides.
-Top Caving Destinations We Cover
-Meghalaya: Home to some of Asia's longest and most stunning caves, including Mawsmai Cave and Liat Prah.
-Badami, Karnataka: Famous for its ancient rock-cut cave temples.
-Ajanta and Ellora, Maharashtra: Explore centuries-old cave art and architecture.
-Borra Caves, Andhra Pradesh: Known for their striking stalactites and stalagmites.
-Amarnath Cave, Jammu & Kashmir: A sacred pilgrimage site with natural ice formations.</p>
+    <h1 style="font-size: 60px; margin-top: 120px; margin-left: 50px;">Popular Adventure Sports</h1>
+    <div class="gold" style="margin-top: 20px; display: flex; margin-left: 20px; margin-right: 20px; justify-content: space-around;">
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Rafting</h1>
+            <img src="https://images.pexels.com/photos/3413678/pexels-photo-3413678.jpeg?auto=compress&cs=tinysrgb&w=1200" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="rafting.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px; text-align: center;">EXPLORE</a></h2>
+            </div>
+        </div>
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Surfing</h1>
+            <img src="https://images.pexels.com/photos/9955800/pexels-photo-9955800.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="surf.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px; text-align: center;">EXPLORE</a></h2>
+            </div>
+        </div>
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Scuba Diving</h1>
+            <img src="https://images.pexels.com/photos/3266821/pexels-photo-3266821.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="scuba.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px; text-align: center;">EXPLORE</a></h2>
+            </div>
+        </div>
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Mountain Biking</h1>
+            <img src="https://images.pexels.com/photos/26757807/pexels-photo-26757807/free-photo-of-a-man-on-a-bicycle-with-a-dog.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="biking.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px;">EXPLORE</a></h2>
+            </div>
+        </div>
     </div>
-    <div class="text-content">
-       <h2>Where can Cave Exploration be done</h2>
-    
-    
-      <p> Meghalaya, India
-Meghalaya is one of the top caving destinations in India and Asia, known for its stunning limestone caves. The state is home to some of the longest and most beautiful caves in India.
 
-Famous Caves: Sohra (Cherrapunji) and Mawsmai Cave, Liat Prah, Siju.
-Best for: Beginners to advanced cavers, with options ranging from simple tours to more challenging explorations.
- Slovenia
-Slovenia is famous for its extensive cave systems and stunning karst landscapes. The country has been a hub for cave explorers for decades.
 
-Famous Caves: Postojna Cave (one of the largest and most visited), Škocjan Caves (UNESCO World Heritage Site), and Krizna Cave.
-Best for: Adventurous travelers looking for well-organized guided tours and more technical caving routes.
- New Zealand
-New Zealand offers a variety of caves, including limestone caves, glowworm caves, and more challenging speleological adventures.
 
-Famous Caves: Waitomo Caves (world-famous for its glowworms), Ruakuri Cave, and Te Anau Caves.
-Best for: Adventure seekers and families. The glowworm caves in Waitomo are popular with tourists, while other caves offer more technical challenges.
- Kentucky, USA
-Kentucky is home to the Mammoth Cave National Park, the longest known cave system in the world.
 
-Famous Caves: Mammoth Cave, Carlsbad Caverns (New Mexico), Lost River Cave.
-Best for: Both casual tourists and serious cavers, with options for both guided tours and self-guided exploration.
- Mexico
-Mexico offers some of the most incredible and unique cave systems, particularly in the Yucatán Peninsula.
 
-Famous Caves: Cenotes (natural sinkholes and cave systems), Cave of Swallows (Cueva de las Golondrinas) in San Luis Potosí.
-Best for: Adventurers looking for challenging dives and underground river exploration, as well as those interested in cenote swimming and cultural exploration.</p>
-    </div>
-    <div class="text-content">
-       <h2>Eligibility for Cave Exploation</h2>
-    
-    
-       <p> Age Limit
-Minimum Age: Most caves allow participants to be at least 12 years old for basic tours, although some operators may allow younger children if accompanied by an adult.
-Maximum Age: There’s typically no upper age limit for basic tours, but participants should be in good physical health. For more challenging caves, there may be age restrictions based on physical fitness.
-2. Physical Fitness
-Basic Tours: Participants should be in generally good health, as caves may require some walking, climbing, or crawling.
-Adventure/Technical Caving: For more strenuous caving activities, participants should have good stamina, agility, and flexibility. Caves might involve navigating tight spaces, climbing, rappelling, and traversing uneven surfaces.
-Health Considerations:
-Individuals with heart conditions, respiratory problems, or significant mobility issues may be advised against participating.
-Pregnant women are usually not allowed on more strenuous caving adventures due to the physical demands and the environment.
-People with severe claustrophobia or anxiety may find some caves challenging, especially those with tight or confined spaces.
-3. Weight Limits
-Some operators or caves may have weight limits for safety reasons, particularly for guided tours that involve crawling or climbing.
-Typical weight limits are usually around 100–120 kg (220–265 lbs), but this can vary depending on the cave and operator.
-4. Experience Level
-Beginner Caving: Many caves offer easy-to-navigate routes that don’t require prior experience. These are suitable for first-time explorers and families.
-Advanced/Technical Caving: For more challenging caves, such as those requiring rappelling, abseiling, or extensive crawling, prior experience or training may be required. Some operators offer beginner-to-advanced training programs for those who wish to explore deeper or more difficult caves.
-5. Safety and Training
-Guided Tours: Most caving trips are guided, meaning participants don’t need any prior technical knowledge, but will receive a safety briefing and instructions before starting the tour.
-Advanced Caving: For caving that involves complex maneuvers or spelunking (exploring unexplored caves), participants are usually required to undergo training courses or certifications to ensure safety.
-6. Alcohol and Drug Policy
-You must be sober and free from alcohol or drugs before participating in any cave exploration, as it can impair judgment and pose safety risks.</p>
-    </div>
-    <footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; margin-top: 50px;">
-        <div style="margin-bottom: 10px;">
-            <a href="#about" style="color: #fff; text-decoration: none; margin: 0 10px;">About</a>
-            <a href="#contact" style="color: #fff; text-decoration: none; margin: 0 10px;">Contact</a>
-            <a href="#privacy" style="color: #fff; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
+
+
+    <footer class="footer-section" style="margin-top: 100px;">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h2>Get exclusive updates<br>Subscribe to our newsletter</h2>
+                <p>Sign up to our newsletter to receive the latest travel updates.</p>
+                <form class="newsletter-form">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                    <div class="privacy-checkbox">
+                        <input type="checkbox" id="privacy" name="privacy">
+                        <label for="privacy">By subscribing, you agree to our Privacy Policy.</label>
+                    </div>
+                    <button type="submit" class="subscribe-button">SUBSCRIBE</button>
+                </form>
+            </div>
+            <div class="footer-right">
+                <ul>
+                    <li><a href="#">Adventure Sports</a></li>
+                    <li><a href="#">Adventure Near You</a></li>
+                    <li><a href="#">Magazine</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2035 by Hoopup.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
         </div>
         <p style="margin: 0;">© 2024 Cave Exploration Adventures. All rights reserved.</p>
         <div style="margin-top: 10px;">
