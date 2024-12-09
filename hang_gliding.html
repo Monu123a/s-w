@@ -1,236 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-       body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        
-        .hero {
-            width: 100%;
-            height: 100vh;
-            background-image: linear-gradient(rgba(12, 3, 51, 0.3), rgba(12, 3, 51, 0.3));
-            position: relative;
-            padding: 0 5%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        nav {
-            width: 90%;
-            height: 100px;
-            background-color: #ffffff;
-            opacity: 0.4;
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 20px 5%;
-            display: flex;
-            align-content: center;
-            justify-content: space-between;
-        }
-        
-        nav ul li {
-            list-style: none;
-            display: inline-block;
-            margin-left: 40px;
-            margin-top: 25px;
-        }
-        
-        nav ul li a {
-            color: rgb(0, 0, 0);
-            text-decoration: none;
-            font-size: 17px;
-        }
-        
-        .container {
-            display: grid;
-            justify-content: center;
-            row-gap: 20px;
-            column-gap: 5px;
-            grid-template-columns: repeat(4, 350px);
-            grid-template-rows: repeat(3, 200px);
-            margin: 50px auto;
-        }
-        
-        .box {
-            border: 2px solid transparent;
-            padding: 12px;
-        }
-        
-        #box-1 {
-            grid-row-start: 1;
-            grid-row-end: 5;
-        }
-        
-        #box-2 {
-            grid-column: 2 / span 2;
-        }
-        
-        #box-6 {
-            grid-row: 2 / span 2;
-        }
-        
-        .text-content {
-            margin: 50px auto;
-            padding: 20px;
-            border: 0.5px solid rgb(113, 113, 113);
-            border-radius: 10px;
-            max-width: 1200px;
-            background-color: #f9f9f9;
-        }
-        
-        h2 {
-            font-size: 30px;
-            text-align: center;
-        }
-        
-        p {
-            font-size: 20px;
-            text-align: justify;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Bilbo+Swash+Caps&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=League+Script&family=Libre+Caslon+Display&family=Molle&family=Playwrite+PE:wght@100..400&display=swap" rel="stylesheet">
 </head>
+<style>
+    h1,
+    h2,
+    h3,
+    p,
+    h4,
+    h5,
+    h6 {
+        font-family: "Libre Caslon Display", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    ul li,
+    h2 {
+        list-style: none;
+        display: inline-block;
+        margin-left: 50px;
+        margin-right: 10px;
+        text-align: right;
+        margin-top: 10px;
+    }
+    
+    ul li a,
+    h2 {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-size: 17px;
+    }
+    
+    details {
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+    
+    summary {
+        cursor: pointer;
+        font-weight: bold;
+    }
+    
+    details:not(:last-of-type)::after {
+        content: "";
+        display: block;
+        border-bottom: 2px dotted #888;
+        margin: 10px 0;
+    }
+    
+    .footer-section {
+        background-color: #f9a32b;
+        padding: 80px 40px;
+        color: #333;
+    }
+    
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .footer-left {
+        flex: 1;
+        margin-right: 40px;
+        max-width: 600px;
+    }
+    
+    .footer-left h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+    
+    .footer-left p {
+        margin-bottom: 30px;
+        font-size: 18px;
+        color: #222;
+    }
+    
+    .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .newsletter-form label {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    .newsletter-form input[type="email"] {
+        padding: 15px;
+        border: none;
+        border-bottom: 1px solid #333;
+        outline: none;
+        font-size: 18px;
+        background-color: transparent;
+    }
+    
+    .privacy-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 16px;
+    }
+    
+    .subscribe-button {
+        background-color: #333;
+        color: #fff;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    .subscribe-button:hover {
+        background-color: #555;
+    }
+    
+    .footer-right {
+        flex: 1;
+        display: flex;
+        gap: 40px;
+    }
+    
+    .footer-right ul {
+        list-style: none;
+    }
+    
+    .footer-right li {
+        margin-bottom: 15px;
+    }
+    
+    .footer-right a {
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    
+    .footer-right a:hover {
+        text-decoration: underline;
+    }
+    
+    .footer-bottom {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 14px;
+    }
+    
+    .footer-bottom a {
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    .footer-bottom a:hover {
+        text-decoration: underline;
+    }
+    
+    .gold:hower {
+        background-color: #ffb145;
+    }
+</style>
+
 <body>
-    <div>
-    <video autoplay muted loop style="width: 100%; height: 700px; object-fit: cover;">
-        <source src="GoPro Awards_ MTB with Hot Air Balloons in Cappadocia - GoPro (1080p, h264, youtube).mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <nav>
-        <img src="image copy 5.png" class="logo" style="width: 80px; height: 80px;">
-        <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">ADVENTURE SPORTS</a></li>
-            <li><a href="#">LOCATION</a></li>
-            <li><a href="#">CONTACT</a></li>
-            <li><a href="#">ABOUT US</a></li>
-        </ul>
-    </nav>
-</div>
-    
-    <div class="container">
-        <div class="box" id="box-1">
-            <img src="https://images.pexels.com/photos/9532464/pexels-photo-9532464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 335px;height: 640px;">
+    <div class="top" style="display: flex;">
+        <div style="background-color: gainsboro;height: 40px;width: 400px;margin-top: 30px; display: flex; border-radius: 20px;margin-left: 20px;">
+            <h2><a href="index.html">HOOPUP</a></h2>
         </div>
-        <div class="box" id="box-2">
-            <img src="https://asset---north-carolina.bldg15.net/img/6/2/6208ac7e-0f2a-4a1c-a9a7-31eeaabd43af/Nags%20Head_Jockey%27s%20Ridge%20Hang%20Gliding_For%20Real_Fall_3-crop(1,0.638,0,0.334,r4).af6209d5.jpg" style="width:700px ; height: 200px;">
-            
+        <div style="background-color: gainsboro;height: 40px;width: 1000px;margin-top: 30px;display: flex;border-radius: 20px;margin-left: 10px;text-align: end;margin-right: 10px;">
+            <ul>
+                <li><a href="#">Explore Sports</a></li>
+                <li><a href="#">Plans For You</a></li>
+                <li><a href="#">Magazine</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
         </div>
-
-        <div class="box" id="box-3">
-            <img src="https://www.kittyhawk.com/wp-content/uploads/2015/03/Untitled-Website-1.png" style="height: 210px;width: 370px;">
+        <div style="background-color: black;color: white;height: 40px;width: 400px;margin-top: 30px;display: flex;border-radius: 20px;margin-left: 20px;">
+            <ul>
+                <li style="color: white;"><a href="#" style="color: white;">EXPLORE RIGHT NOW</a></li>
+            </ul>
         </div>
-        <div class="box" id="box-4">
-            <img src="https://cdn.britannica.com/25/197125-050-13EEA45D/Hang-gliders-valley-Slovenia-Tolmin.jpg" style="height: 210px;width: 330px;">
-           
-        </div>
-
-        <div class="box" id="box-5">
-            <img src="https://static.sciencelearn.org.nz/images/images/000/000/301/embed/FLT_LKC_ART_04_Hanggliders_HandGlider.jpg?1674164065" style="height: 210px;width: 370px;">
-        </div>
-        <div class="box" id="box-6">
-            <img src="https://cdn.britannica.com/61/115361-050-C5993ACD/Hang-gliding.jpg" style="height:420px ; width: 330px ;">
-        </div>
-        <div class="box" id="box-7">
-            <img src="https://media.istockphoto.com/id/999964474/photo/deltoplan.jpg?s=612x612&w=0&k=20&c=YSMGOjtOiqFbW4zHIb_Sf2yY1yGlODnQmz7wVXFoc5M=" style="height:210px ; width: 330px ;">
-        </div>
-        
-        <div class="box" id="box-8">
-            <img src="https://db637ll7r1kva.cloudfront.net/app/uploads/2022/08/04090908/GettyImages-97843537.jpg" style="height:210px ; width: 370px ;"> 
-        </div>
-
-       
     </div>
-   <div class="text-content">
-        <h2>Hang Gliding</h2>
-    
-    <p>
-        Experience the Thrill of Hand-Gliding
-Soar through the skies and embrace the freedom of flight with our hand-gliding adventures. Whether you’re an adrenaline junkie or a first-time flyer, we offer the perfect opportunity to experience the ultimate combination of serenity and excitement.
-
-Why Choose Us?
-Certified Instructors: Our experienced guides ensure a safe and exhilarating experience.
-Stunning Locations: Fly over breathtaking landscapes, from lush valleys to stunning coastlines.
-Custom Packages: Whether you're looking for solo flights or group adventures, we have something for everyone.
-What to Expect
-Pre-Flight Training: Learn the basics of hand-gliding with hands-on guidance.
-Take-Off: Launch into the skies and feel the rush as you glide through the air.
-Incredible Views: Soak in panoramic views that will leave you speechless.
-Safe Landing: Land with ease under the expert supervision of our team.
-Start Your Adventure Today!
-Ready to make unforgettable memories? Book your hand-gliding experience now and discover the thrill of flight like never before.</p>
+    <h1 style="font-size: 100px;margin-top: 50px;margin-left: 20px;">PLAN YOUR TRIP</h1>
+    <h1 style="color: rgb(88, 207, 254);font-size: 100px;margin-left: 20px;">➢ THE EXPLORATION SHOULD NEVER STOP. </h1>
+    <div style="display: flex;justify-content: space-between;">
+        <div style="width: 730px;height: 700px;background-color: gainsboro;border-radius: 20px;margin-left: 40px;">
 
 
-    </div>
-    <div class="text-content">
-       <h2>Where Can You Go Hand-Gliding?</h2>
-        
-    
-    
-       <p> Experience the thrill of soaring like a bird in some of the most breathtaking locations around the world! Hand-gliding enthusiasts can find incredible spots for flying, whether you're seeking serene coastal winds or adrenaline-pumping mountain launches. Here are a few popular destinations:
-
-Coastal Cliffs: Glide over stunning seaside landscapes at destinations like Torrey Pines in California or the cliffs of Cornwall in England. Perfect for smooth rides and picturesque views.
-Mountain Launches: Take off from majestic peaks like Rio de Janeiro's Pedra Bonita or the Swiss Alps for heart-racing flights with unparalleled scenery.
-Open Countryside: Explore flatland flying in places like the Great Plains of the USA or Australia's scenic countryside, where thermals provide excellent lift.
-Tropical Havens: Enjoy warm winds and vibrant views in places like Hawaii, Bali, or the Dominican Republic.
-Whether you're a seasoned pilot or a first-time flyer, there’s a perfect spot waiting for you. Don't forget to check with local clubs and schools for the best times and safety guidelines. Adventure awaits!</p>
+            <img src="https://th-thumbnailer.cdn-si-edu.com/kRwbOtYHniMZ_5FNvNU4QFzI8mc=/800x800/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/2b/6f/2b6f1780-d246-4d41-984d-391548f240ca/hang-gliding-opener.jpg" style="height: 700px;width: 730px;border-radius: 20px;">
 
 
-        
-    </div>
-    <div class="text-content">
-       <h2> Eligibity for Hang-Gliding</h2>
-        
- 
-
-        <p>To ensure a safe and enjoyable hang-gliding experience, participants must meet the following eligibility requirements:
-
-Minimum Age: Participants must be at least [Insert Age] years old. Minors under 18 years will need a signed consent form from a parent or guardian.
-
-Weight Limits: For safety reasons, participants must weigh between [Minimum Weight] kg/lbs and [Maximum Weight] kg/lbs.
-
-Physical Fitness: Hang-gliding requires basic physical fitness. Participants should be able to jog a short distance and follow instructions clearly. Those with serious medical conditions should consult a doctor before participating.
-
-Health Conditions:
-
-Individuals with heart conditions, recent surgeries, or severe joint issues may not be eligible.
-Pregnant individuals are advised not to participate.
-Training Requirement: First-time flyers must complete a mandatory pre-flight training session with a certified instructor.
-
-Weather Suitability: Flights may be rescheduled or canceled in unsuitable weather conditions for your safety.
-
-Clothing and Gear: Participants should wear comfortable, weather-appropriate clothing and closed-toe shoes. All safety equipment will be provided.
-
-Alcohol and Drugs: Participants must not be under the influence of alcohol or drugs during the activity.</p>
-
-
-    </div>
-    <footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; margin-top: 50px;">
-        <div style="margin-bottom: 10px;">
-            <a href="#about" style="color: #fff; text-decoration: none; margin: 0 10px;">About</a>
-            <a href="#contact" style="color: #fff; text-decoration: none; margin: 0 10px;">Contact</a>
-            <a href="#privacy" style="color: #fff; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
         </div>
-        <p style="margin: 0;">© 2024 Hang-Gliding Adventures. All rights reserved.</p>
-        <div style="margin-top: 10px;">
-            <a href="https://www.facebook.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 5px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Facebook_icon_%28black%29.svg" alt="Facebook" style="width: 50px; vertical-align: middle; padding: 20px;">
-            </a>
-            <a href="https://www.twitter.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 5px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/2491px-Logo_of_Twitter.svg.png" alt="Twitter" style="width: 50px; vertical-align: middle; padding: 20px;">
-            </a>
-            <a href="https://www.instagram.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 5px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/2048px-Instagram_logo_2022.svg.png" style="width: 20px; style="width: 50px; vertical-align: middle; padding: 20px;">
-            </a>
+        <div style="width: 730px;height: 700px;border-radius: 20px;background-color: #E8A844;">
+
+            <details open>
+                <summary style="margin-top: 30px;">Bungee Jumping</summary>
+                <p>Hang Gliding: Soaring Above the World
+
+                    Hang gliding is an exhilarating airborne sport where participants glide through the sky, harnessed in a lightweight, non-motorized aircraft. It offers an unmatched sense of freedom and connection with nature as pilots navigate currents of air, taking in breathtaking views from high altitudes. Whether you're a seasoned adventurer or a beginner seeking thrills, hang gliding provides a unique way to experience the world from a bird's-eye perspective.</p>
+            </details>
+
+            <details>
+                <summary>Discription</summary>
+                <p>FExperience the Thrill of Hand-Gliding
+                    Soar through the skies and embrace the freedom of flight with our hand-gliding adventures. Whether you’re an adrenaline junkie or a first-time flyer, we offer the perfect opportunity to experience the ultimate combination of serenity and excitement.
+                    
+                    Why Choose Us?
+                    Certified Instructors: Our experienced guides ensure a safe and exhilarating experience.
+                    Stunning Locations: Fly over breathtaking landscapes, from lush valleys to stunning coastlines.
+                    Custom Packages: Whether you're looking for solo flights or group adventures, we have something for everyone.
+                    What to Expect
+                    Pre-Flight Training: Learn the basics of hand-gliding with hands-on guidance.
+                    Take-Off: Launch into the skies and feel the rush as you glide through the air.
+                    Incredible Views: Soak in panoramic views that will leave you speechless.
+                    Safe Landing: Land with ease under the expert supervision of our team.
+                    Start Your Adventure Today!
+                    Ready to make unforgettable memories? Book your hand-gliding experience now and discover the thrill of flight like never before.</p>
+            </details>
+
+            <details>
+                <summary>Elegilibity</summary>
+                <p>To ensure a safe and enjoyable hang-gliding experience, participants must meet the following eligibility requirements:
+
+                    Minimum Age: Participants must be at least [Insert Age] years old. Minors under 18 years will need a signed consent form from a parent or guardian.
+                    
+                    Weight Limits: For safety reasons, participants must weigh between [Minimum Weight] kg/lbs and [Maximum Weight] kg/lbs.
+                    
+                    Physical Fitness: Hang-gliding requires basic physical fitness. Participants should be able to jog a short distance and follow instructions clearly. Those with serious medical conditions should consult a doctor before participating.
+                    
+                    Health Conditions:
+                    
+                    Individuals with heart conditions, recent surgeries, or severe joint issues may not be eligible.
+                    Pregnant individuals are advised not to participate.
+                    Training Requirement: First-time flyers must complete a mandatory pre-flight training session with a certified instructor.
+                    
+                    Weather Suitability: Flights may be rescheduled or canceled in unsuitable weather conditions for your safety.
+                    
+                    Clothing and Gear: Participants should wear comfortable, weather-appropriate clothing and closed-toe shoes. All safety equipment will be provided.
+                    
+                    Alcohol and Drugs: Participants must not be under the influence of alcohol or drugs during the activity.</p>
+            </details>
+
+            <details>
+                <summary>Location</summary>
+                <p>Experience the thrill of soaring like a bird in some of the most breathtaking locations around the world! Hand-gliding enthusiasts can find incredible spots for flying, whether you're seeking serene coastal winds or adrenaline-pumping mountain launches. Here are a few popular destinations:
+
+                    Coastal Cliffs: Glide over stunning seaside landscapes at destinations like Torrey Pines in California or the cliffs of Cornwall in England. Perfect for smooth rides and picturesque views.
+                    Mountain Launches: Take off from majestic peaks like Rio de Janeiro's Pedra Bonita or the Swiss Alps for heart-racing flights with unparalleled scenery.
+                    Open Countryside: Explore flatland flying in places like the Great Plains of the USA or Australia's scenic countryside, where thermals provide excellent lift.
+                    Tropical Havens: Enjoy warm winds and vibrant views in places like Hawaii, Bali, or the Dominican Republic.
+                    Whether you're a seasoned pilot or a first-time flyer, there’s a perfect spot waiting for you. Don't forget to check with local clubs and schools for the best times and safety guidelines. Adventure awaits!</p>
+            </details>
+
+            <script>
+                const detailsElements = document.querySelectorAll("details");
+
+                detailsElements.forEach((details) => {
+                    details.addEventListener("click", function() {
+
+                        detailsElements.forEach((otherDetails) => {
+                            if (otherDetails !== details) {
+                                otherDetails.removeAttribute("open");
+                            }
+                        });
+                    });
+                });
+            </script>
+            <p style="margin-top: 15px;font-size: 20px;margin-left: 10px;margin-right: 10px;">This is the space to introduce visitors to the business or brand. Briefly explain who's behind it, what it does and what makes it unique. Share its core values and what this site has to offer.</p>
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+    <h1 style="font-size: 60px; margin-top: 120px; margin-left: 50px;">Popular Adventure Sports</h1>
+    <div class="gold" style="margin-top: 20px; display: flex; margin-left: 20px; margin-right: 20px; justify-content: space-around;">
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Rafting</h1>
+            <img src="https://images.pexels.com/photos/3413678/pexels-photo-3413678.jpeg?auto=compress&cs=tinysrgb&w=1200" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="rafting.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px; text-align: center;">EXPLORE</a></h2>
+            </div>
+        </div>
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Surfing</h1>
+            <img src="https://images.pexels.com/photos/9955800/pexels-photo-9955800.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="surf.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px; text-align: center;">EXPLORE</a></h2>
+            </div>
+        </div>
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Scuba Diving</h1>
+            <img src="https://images.pexels.com/photos/3266821/pexels-photo-3266821.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="scuba.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px; text-align: center;">EXPLORE</a></h2>
+            </div>
+        </div>
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Mountain Biking</h1>
+            <img src="https://images.pexels.com/photos/26757807/pexels-photo-26757807/free-photo-of-a-man-on-a-bicycle-with-a-dog.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="biking.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px;">EXPLORE</a></h2>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <footer class="footer-section" style="margin-top: 100px;">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h2>Get exclusive updates<br>Subscribe to our newsletter</h2>
+                <p>Sign up to our newsletter to receive the latest travel updates.</p>
+                <form class="newsletter-form">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                    <div class="privacy-checkbox">
+                        <input type="checkbox" id="privacy" name="privacy">
+                        <label for="privacy">By subscribing, you agree to our Privacy Policy.</label>
+                    </div>
+                    <button type="submit" class="subscribe-button">SUBSCRIBE</button>
+                </form>
+            </div>
+            <div class="footer-right">
+                <ul>
+                    <li><a href="#">Adventure Sports</a></li>
+                    <li><a href="#">Adventure Near You</a></li>
+                    <li><a href="#">Magazine</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2035 by Hoopup.</p>
         </div>
     </footer>
+
 </body>
+
 </html>
