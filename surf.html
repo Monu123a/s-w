@@ -1,223 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        
-        .hero {
-            width: 100%;
-            height: 100vh;
-            background-image: linear-gradient(rgba(12, 3, 51, 0.3), rgba(12, 3, 51, 0.3));
-            position: relative;
-            padding: 0 5%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        nav {
-            width: 90%;
-            height: 100px;
-            background-color: #ffffff;
-            opacity: 0.4;
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 20px 5%;
-            display: flex;
-            align-content: center;
-            justify-content: space-between;
-        }
-        
-        nav ul li {
-            list-style: none;
-            display: inline-block;
-            margin-left: 40px;
-            margin-top: 25px;
-        }
-        
-        nav ul li a {
-            color: rgb(0, 0, 0);
-            text-decoration: none;
-            font-size: 17px;
-        }
-        
-        .container {
-            display: grid;
-            justify-content: center;
-            row-gap: 20px;
-            column-gap: 5px;
-            grid-template-columns: repeat(4, 350px);
-            grid-template-rows: repeat(3, 200px);
-            margin: 50px auto;
-        }
-        
-        .box {
-            border: 2px solid transparent;
-            padding: 12px;
-        }
-        
-        #box-1 {
-            grid-row-start: 1;
-            grid-row-end: 5;
-        }
-        
-        #box-2 {
-            grid-column: 2 / span 2;
-        }
-        
-        #box-6 {
-            grid-row: 2 / span 2;
-        }
-        
-        .text-content {
-            margin: 50px auto;
-            padding: 20px;
-            border: 0.5px solid rgb(113, 113, 113);
-            border-radius: 10px;
-            max-width: 1200px;
-            background-color: #f9f9f9;
-        }
-        
-        h2 {
-            font-size: 30px;
-            text-align: center;
-        }
-        
-        p {
-            font-size: 20px;
-            text-align: justify;
-        }
-
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Bilbo+Swash+Caps&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=League+Script&family=Libre+Caslon+Display&family=Molle&family=Playwrite+PE:wght@100..400&display=swap" rel="stylesheet">
 </head>
+<style>
+    h1,
+    h2,
+    h3,
+    p,
+    h4,
+    h5,
+    h6 {
+        font-family: "Libre Caslon Display", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    ul li,
+    h2 {
+        list-style: none;
+        display: inline-block;
+        margin-left: 50px;
+        margin-right: 10px;
+        text-align: right;
+        margin-top: 10px;
+    }
+    
+    ul li a,
+    h2 {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-size: 17px;
+    }
+    
+    details {
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+    
+    summary {
+        cursor: pointer;
+        font-weight: bold;
+    }
+    
+    details:not(:last-of-type)::after {
+        content: "";
+        display: block;
+        border-bottom: 2px dotted #888;
+        margin: 10px 0;
+    }
+    
+    .footer-section {
+        background-color: #f9a32b;
+        padding: 80px 40px;
+        color: #333;
+    }
+    
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .footer-left {
+        flex: 1;
+        margin-right: 40px;
+        max-width: 600px;
+    }
+    
+    .footer-left h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+    
+    .footer-left p {
+        margin-bottom: 30px;
+        font-size: 18px;
+        color: #222;
+    }
+    
+    .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .newsletter-form label {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    .newsletter-form input[type="email"] {
+        padding: 15px;
+        border: none;
+        border-bottom: 1px solid #333;
+        outline: none;
+        font-size: 18px;
+        background-color: transparent;
+    }
+    
+    .privacy-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 16px;
+    }
+    
+    .subscribe-button {
+        background-color: #333;
+        color: #fff;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    .subscribe-button:hover {
+        background-color: #555;
+    }
+    
+    .footer-right {
+        flex: 1;
+        display: flex;
+        gap: 40px;
+    }
+    
+    .footer-right ul {
+        list-style: none;
+    }
+    
+    .footer-right li {
+        margin-bottom: 15px;
+    }
+    
+    .footer-right a {
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    
+    .footer-right a:hover {
+        text-decoration: underline;
+    }
+    
+    .footer-bottom {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 14px;
+    }
+    
+    .footer-bottom a {
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    .footer-bottom a:hover {
+        text-decoration: underline;
+    }
+    
+    .gold:hower {
+        background-color: #ffb145;
+    }
+</style>
+
 <body>
-    <div>
-    <video autoplay muted loop style="width: 100%; height: 700px; object-fit: cover;">
-        <source src="GoPro Awards_ MTB with Hot Air Balloons in Cappadocia - GoPro (1080p, h264, youtube).mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <nav>
-        <img src="image copy 5.png" class="logo" style="width: 80px; height: 80px;">
-        <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">ADVENTURE SPORTS</a></li>
-            <li><a href="#">LOCATION</a></li>
-            <li><a href="#">CONTACT</a></li>
-            <li><a href="#">ABOUT US</a></li>
-        </ul>
-    </nav>
-</div>
-    <div class="container">
-        <div class="box" id="box-1">
-            <img src="https://cdn.pixabay.com/photo/2022/06/04/02/15/wind-surfing-7241116_1280.jpg" style="width: 335px;height: 640px;">
+    <div class="top" style="display: flex;">
+        <div style="background-color: gainsboro;height: 40px;width: 400px;margin-top: 30px; display: flex; border-radius: 20px;margin-left: 20px;">
+            <h2><a href="index.html">HOPUP</a></h2>
         </div>
-        <div class="box" id="box-2">
-            <img src="https://images.pexels.com/photos/7862/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width:700px ; height: 200px;">
+        <div style="background-color: gainsboro;height: 40px;width: 1000px;margin-top: 30px;display: flex;border-radius: 20px;margin-left: 10px;text-align: end;margin-right: 10px;">
+            <ul>
+                <li><a href="#">Explore Sports</a></li>
+                <li><a href="#">Plans For You</a></li>
+                <li><a href="#">Magazine</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+        <div style="background-color: black;color: white;height: 40px;width: 400px;margin-top: 30px;display: flex;border-radius: 20px;margin-left: 20px;">
+            <ul>
+                <li style="color: white;"><a href="#" style="color: white;">EXPLORE RIGHT NOW</a></li>
+            </ul>
+        </div>
+    </div>
+    <h1 style="font-size: 100px;margin-top: 50px;margin-left: 20px;">PLAN YOUR TRIP</h1>
+    <h1 style="color: rgb(88, 207, 254);font-size: 100px;margin-left: 20px;">➢ THE EXPLORATION SHOULD NEVER STOP. </h1>
+    <div style="display: flex;justify-content: space-between;">
+        <div style="width: 730px;height: 700px;background-color: gainsboro;border-radius: 20px;margin-left: 40px;">
+
+
+            <img src="https://www.reuters.com/graphics/OLYMPICS-2024/SURFING/akpeoxnyopr/cdn/images/header-image.jpg" style="height: 700px;width: 730px;border-radius: 20px;">
+
+
+        </div>
+        <div style="width: 730px;height: 700px;border-radius: 20px;background-color: #E8A844;">
+
+            <details open>
+                <summary style="margin-top: 30px;">Bungee Jumping</summary>
+                <p>Surfing is more than just a sport; it's a lifestyle that connects you to the rhythm of the ocean. Whether you're riding the perfect wave or just paddling out, there's a unique sense of freedom and adventure in every moment. Surfers embrace the challenge of mastering the waves, learning the balance between skill and nature. From beginners to seasoned pros, surfing offers endless opportunities for growth and discovery, always reminding us to stay in tune with the natural world.</p>
+            </details>
+
+            <details>
+                <summary>Discription</summary>
+                <p>
+                    The Thrill of Surfing: Riding the Waves
             
+            Surfing is more than just a sport; it’s an exhilarating connection with nature and a test of both skill and courage. As you paddle out into the ocean, you become attuned to the rhythm of the waves, the pull of the tides, and the energy of the sea. Each wave presents a unique challenge, a fleeting opportunity to glide across its surface, propelled by its immense power.
+            
+            For beginners, the experience begins with learning to balance on the board. It's an art that requires patience, practice, and a lot of falling off before you master it. Yet, with each small success, you’ll feel a growing sense of achievement and excitement. For seasoned surfers, it’s about reading the ocean’s language, choosing the perfect wave, and executing maneuvers with precision.
+            
+            Surfing is also deeply meditative. The time spent waiting for the next set of waves allows for reflection and mindfulness, as you immerse yourself in the sounds and sights of the sea. It’s a sport that builds physical strength, endurance, and mental resilience.
+            
+            Whether you’re riding towering waves at renowned spots like Hawaii's North Shore or catching gentle rollers on a serene beach, surfing is an adventure that keeps you coming back for more. It’s not just about mastering the waves; it’s about the joy of being in harmony with the ocean and experiencing the pure freedom of the ride.</p>
+            </details>
+
+            <details>
+                <summary>Elegilibity</summary>
+                <p> Age: Surfing is suitable for people of varying ages, from young children to adults. However, it’s recommended that children be at least 5 to 7 years old before learning to surf, as they need to be able to swim comfortably and handle a surfboard. Some surf schools have specific age requirements for lessons, so it's important to check with the provider.
+
+                    Swimming Ability: Basic swimming skills are essential for surfing. Participants should be comfortable in the water, able to float, and swim a short distance to shore if necessary. Surfing involves navigating waves, and a good level of water safety is crucial to enjoy the sport safely.
+                    
+                    Physical Fitness: Surfing is a physically demanding activity. It requires strength, balance, and coordination. Being in good physical condition, especially with strong core muscles, upper body strength, and stamina, is helpful to catch waves and maintain balance on a surfboard. However, beginners can start with basic lessons and gradually build fitness.
+                    
+                    Health Considerations: Individuals with certain medical conditions, like heart problems or severe asthma, should consult a doctor before taking up surfing. Surf schools may require a health declaration or medical clearance for certain participants.
+                    
+                    Equipment: Surfing requires appropriate gear, including a surfboard, leash, and wetsuit, depending on water temperature. Most surf schools provide equipment for beginners.</p>
+            </details>
+
+            <details>
+                <summary>Location</summary>
+                <p>Hawaii, USA
+                    Hawaii is the birthplace of modern surfing, with iconic spots like Waikiki Beach for beginners and Banzai Pipeline on Oahu’s North Shore for advanced surfers. The consistent waves and warm waters make it a year-round destination.
+                    
+                    Gold Coast, Australia
+                    Known as a surfer’s paradise, the Gold Coast boasts world-class breaks like Snapper Rocks and Burleigh Heads. Its sunny weather and vibrant surf culture attract enthusiasts globally.
+                    
+                    Bali, Indonesia
+                    Bali offers diverse surfing conditions, from the gentle waves of Kuta Beach for novices to the challenging swells of Uluwatu and Padang Padang for experts. The tropical setting adds to its allure.
+                    
+                    Portugal
+                    Portugal’s coastline, particularly Peniche and Nazaré, is renowned for its powerful waves. Nazaré is famous for some of the largest surfable waves on Earth, drawing thrill-seekers and spectators.
+                    
+                    California, USA
+                    California’s coastline provides countless surf spots, including Malibu for classic longboarding and Mavericks for extreme big-wave surfing.
+                    
+                    South Africa
+                    Jeffreys Bay is a legendary destination, known for its long, fast, and flawless right-hand point break, attracting surfers from across the globe.</p>
+            </details>
+
+            <script>
+                const detailsElements = document.querySelectorAll("details");
+
+                detailsElements.forEach((details) => {
+                    details.addEventListener("click", function() {
+
+                        detailsElements.forEach((otherDetails) => {
+                            if (otherDetails !== details) {
+                                otherDetails.removeAttribute("open");
+                            }
+                        });
+                    });
+                });
+            </script>
+            <p style="margin-top: 15px;font-size: 20px;margin-left: 10px;margin-right: 10px;">This is the space to introduce visitors to the business or brand. Briefly explain who's behind it, what it does and what makes it unique. Share its core values and what this site has to offer.</p>
         </div>
 
-        <div class="box" id="box-3">
-            <img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3VyZmluZ3xlbnwwfHwwfHx8MA%3D%3D" style="height: 210px;width: 370px;">
-        </div>
-        <div class="box" id="box-4">
-            <img src="https://cdn.shopify.com/s/files/1/0398/0253/files/IMG_5026-2_800x.jpg?v=1707309929" style="height: 210px;width: 330px;">
-           
-        </div>
 
-        <div class="box" id="box-5">
-            <img src="https://cdn.openart.ai/published/yr6N4a1M2VPawj6YoJYG/8XrNNPak_hhCc_1024.webp" style="height: 210px;width: 370px;">
-        </div>
-        <div class="box" id="box-6">
-            <img src="https://images.pexels.com/photos/29517410/pexels-photo-29517410/free-photo-of-surfer-with-red-surfboard-on-sandy-beach.jpeg?auto=compress&cs=tinysrgb&w=1200" style="height:420px ; width: 330px ;">
-        </div>
-        <div class="box" id="box-7">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvYfbv7ADrbNwIcYvq1WgB5JsBXleHbixFnw&s" style="height:210px ; width: 330px ;">
-        </div>
-        
-        <div class="box" id="box-8">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEO1XsL1DU0t8gdaSsBXp4Lk83TzllZ31lqw&s" style="height:210px ; width: 370px ;"> 
-        </div>
 
-    </div>
-    <div class="text-content">
-        <h2>Surfing</h2>
-    
-    <p>
-        The Thrill of Surfing: Riding the Waves
 
-Surfing is more than just a sport; it’s an exhilarating connection with nature and a test of both skill and courage. As you paddle out into the ocean, you become attuned to the rhythm of the waves, the pull of the tides, and the energy of the sea. Each wave presents a unique challenge, a fleeting opportunity to glide across its surface, propelled by its immense power.
 
-For beginners, the experience begins with learning to balance on the board. It's an art that requires patience, practice, and a lot of falling off before you master it. Yet, with each small success, you’ll feel a growing sense of achievement and excitement. For seasoned surfers, it’s about reading the ocean’s language, choosing the perfect wave, and executing maneuvers with precision.
 
-Surfing is also deeply meditative. The time spent waiting for the next set of waves allows for reflection and mindfulness, as you immerse yourself in the sounds and sights of the sea. It’s a sport that builds physical strength, endurance, and mental resilience.
-
-Whether you’re riding towering waves at renowned spots like Hawaii's North Shore or catching gentle rollers on a serene beach, surfing is an adventure that keeps you coming back for more. It’s not just about mastering the waves; it’s about the joy of being in harmony with the ocean and experiencing the pure freedom of the ride.
-    </p>
-    </div>
-    <div class="text-content">
-        <h2>Where can Surfing be done</h2>
-    
-    <p>
-        Hawaii, USA
-Hawaii is the birthplace of modern surfing, with iconic spots like Waikiki Beach for beginners and Banzai Pipeline on Oahu’s North Shore for advanced surfers. The consistent waves and warm waters make it a year-round destination.
-
-Gold Coast, Australia
-Known as a surfer’s paradise, the Gold Coast boasts world-class breaks like Snapper Rocks and Burleigh Heads. Its sunny weather and vibrant surf culture attract enthusiasts globally.
-
-Bali, Indonesia
-Bali offers diverse surfing conditions, from the gentle waves of Kuta Beach for novices to the challenging swells of Uluwatu and Padang Padang for experts. The tropical setting adds to its allure.
-
-Portugal
-Portugal’s coastline, particularly Peniche and Nazaré, is renowned for its powerful waves. Nazaré is famous for some of the largest surfable waves on Earth, drawing thrill-seekers and spectators.
-
-California, USA
-California’s coastline provides countless surf spots, including Malibu for classic longboarding and Mavericks for extreme big-wave surfing.
-
-South Africa
-Jeffreys Bay is a legendary destination, known for its long, fast, and flawless right-hand point break, attracting surfers from across the globe.</p>
-    </div>
-    <div class="text-content">
-    <h2>Eligibilty for Surfing</h2>
-    <p>
-        Age: Surfing is suitable for people of varying ages, from young children to adults. However, it’s recommended that children be at least 5 to 7 years old before learning to surf, as they need to be able to swim comfortably and handle a surfboard. Some surf schools have specific age requirements for lessons, so it's important to check with the provider.
-
-Swimming Ability: Basic swimming skills are essential for surfing. Participants should be comfortable in the water, able to float, and swim a short distance to shore if necessary. Surfing involves navigating waves, and a good level of water safety is crucial to enjoy the sport safely.
-
-Physical Fitness: Surfing is a physically demanding activity. It requires strength, balance, and coordination. Being in good physical condition, especially with strong core muscles, upper body strength, and stamina, is helpful to catch waves and maintain balance on a surfboard. However, beginners can start with basic lessons and gradually build fitness.
-
-Health Considerations: Individuals with certain medical conditions, like heart problems or severe asthma, should consult a doctor before taking up surfing. Surf schools may require a health declaration or medical clearance for certain participants.
-
-Equipment: Surfing requires appropriate gear, including a surfboard, leash, and wetsuit, depending on water temperature. Most surf schools provide equipment for beginners.</p>
 
 
     </div>
-    <footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; margin-top: 50px;">
-        <div style="margin-bottom: 10px;">
-            <a href="#about" style="color: #fff; text-decoration: none; margin: 0 10px;">About</a>
-            <a href="#contact" style="color: #fff; text-decoration: none; margin: 0 10px;">Contact</a>
-            <a href="#privacy" style="color: #fff; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
+    <h1 style="font-size: 60px; margin-top: 120px; margin-left: 50px;">Popular Adventure Sports</h1>
+    <div class="gold" style="margin-top: 20px; display: flex; margin-left: 20px; margin-right: 20px; justify-content: space-around;">
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Rafting</h1>
+            <img src="https://images.pexels.com/photos/3413678/pexels-photo-3413678.jpeg?auto=compress&cs=tinysrgb&w=1200" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="rafting.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px; text-align: center;">EXPLORE</a></h2>
+            </div>
         </div>
-        <p style="margin: 0;">© 2024 Surfing Adventures. All rights reserved.</p>
-        <div style="margin-top: 10px;">
-            <a href="https://www.facebook.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 5px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Facebook_icon_%28black%29.svg" alt="Facebook" style="width: 50px; vertical-align: middle; padding: 20px;">
-            </a>
-            <a href="https://www.twitter.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 5px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/2491px-Logo_of_Twitter.svg.png" alt="Twitter" style="width: 50px; vertical-align: middle; padding: 20px;">
-            </a>
-            <a href="https://www.instagram.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 5px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/2048px-Instagram_logo_2022.svg.png" alt="Instagram" style="width: 50px; vertical-align: middle; padding: 20px;">
-            </a>
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Surfing</h1>
+            <img src="https://images.pexels.com/photos/9955800/pexels-photo-9955800.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="surf.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px; text-align: center;">EXPLORE</a></h2>
+            </div>
+        </div>
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Scuba Diving</h1>
+            <img src="https://images.pexels.com/photos/3266821/pexels-photo-3266821.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="scuba.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px; text-align: center;">EXPLORE</a></h2>
+            </div>
+        </div>
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Mountain Biking</h1>
+            <img src="https://images.pexels.com/photos/26757807/pexels-photo-26757807/free-photo-of-a-man-on-a-bicycle-with-a-dog.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="biking.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px;">EXPLORE</a></h2>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <footer class="footer-section" style="margin-top: 100px;">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h2>Get exclusive updates<br>Subscribe to our newsletter</h2>
+                <p>Sign up to our newsletter to receive the latest travel updates.</p>
+                <form class="newsletter-form">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                    <div class="privacy-checkbox">
+                        <input type="checkbox" id="privacy" name="privacy">
+                        <label for="privacy">By subscribing, you agree to our Privacy Policy.</label>
+                    </div>
+                    <button type="submit" class="subscribe-button">SUBSCRIBE</button>
+                </form>
+            </div>
+            <div class="footer-right">
+                <ul>
+                    <li><a href="#">Adventure Sports</a></li>
+                    <li><a href="#">Adventure Near You</a></li>
+                    <li><a href="#">Magazine</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2035 by Hopup.</p>
         </div>
     </footer>
+
 </body>
+
 </html>
