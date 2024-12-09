@@ -1,226 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        
-        .hero {
-            width: 100%;
-            height: 100vh;
-            background-image: linear-gradient(rgba(12, 3, 51, 0.3), rgba(12, 3, 51, 0.3));
-            position: relative;
-            padding: 0 5%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        nav {
-            width: 90%;
-            height: 100px;
-            background-color: #ffffff;
-            opacity: 0.4;
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 20px 5%;
-            display: flex;
-            align-content: center;
-            justify-content: space-between;
-        }
-        
-        nav ul li {
-            list-style: none;
-            display: inline-block;
-            margin-left: 40px;
-            margin-top: 25px;
-        }
-        
-        nav ul li a {
-            color: rgb(0, 0, 0);
-            text-decoration: none;
-            font-size: 17px;
-        }
-        
-        .container {
-            display: grid;
-            justify-content: center;
-            row-gap: 20px;
-            column-gap: 5px;
-            grid-template-columns: repeat(4, 350px);
-            grid-template-rows: repeat(3, 200px);
-            margin: 50px auto;
-        }
-        
-        .box {
-            border: 2px solid transparent;
-            padding: 12px;
-        }
-        
-        #box-1 {
-            grid-row-start: 1;
-            grid-row-end: 5;
-        }
-        
-        #box-2 {
-            grid-column: 2 / span 2;
-        }
-        
-        #box-6 {
-            grid-row: 2 / span 2;
-        }
-        
-        .text-content {
-            margin: 50px auto;
-            padding: 20px;
-            border: 0.5px solid rgb(113, 113, 113);
-            border-radius: 10px;
-            max-width: 1200px;
-            background-color: #f9f9f9;
-        }
-        
-        h2 {
-            font-size: 30px;
-            text-align: center;
-        }
-        
-        p {
-            font-size: 20px;
-            text-align: justify;
-        }
-
-   
-
-
-
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Bilbo+Swash+Caps&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=League+Script&family=Libre+Caslon+Display&family=Molle&family=Playwrite+PE:wght@100..400&display=swap" rel="stylesheet">
 </head>
+<style>
+    h1,
+    h2,
+    h3,
+    p,
+    h4,
+    h5,
+    h6 {
+        font-family: "Libre Caslon Display", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    ul li,
+    h2 {
+        list-style: none;
+        display: inline-block;
+        margin-left: 50px;
+        margin-right: 10px;
+        text-align: right;
+        margin-top: 10px;
+    }
+    
+    ul li a,
+    h2 {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-size: 17px;
+    }
+    
+    details {
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+    
+    summary {
+        cursor: pointer;
+        font-weight: bold;
+    }
+    
+    details:not(:last-of-type)::after {
+        content: "";
+        display: block;
+        border-bottom: 2px dotted #888;
+        margin: 10px 0;
+    }
+    
+    .footer-section {
+        background-color: #f9a32b;
+        padding: 80px 40px;
+        color: #333;
+    }
+    
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .footer-left {
+        flex: 1;
+        margin-right: 40px;
+        max-width: 600px;
+    }
+    
+    .footer-left h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+    
+    .footer-left p {
+        margin-bottom: 30px;
+        font-size: 18px;
+        color: #222;
+    }
+    
+    .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .newsletter-form label {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    .newsletter-form input[type="email"] {
+        padding: 15px;
+        border: none;
+        border-bottom: 1px solid #333;
+        outline: none;
+        font-size: 18px;
+        background-color: transparent;
+    }
+    
+    .privacy-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 16px;
+    }
+    
+    .subscribe-button {
+        background-color: #333;
+        color: #fff;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    .subscribe-button:hover {
+        background-color: #555;
+    }
+    
+    .footer-right {
+        flex: 1;
+        display: flex;
+        gap: 40px;
+    }
+    
+    .footer-right ul {
+        list-style: none;
+    }
+    
+    .footer-right li {
+        margin-bottom: 15px;
+    }
+    
+    .footer-right a {
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    
+    .footer-right a:hover {
+        text-decoration: underline;
+    }
+    
+    .footer-bottom {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 14px;
+    }
+    
+    .footer-bottom a {
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    .footer-bottom a:hover {
+        text-decoration: underline;
+    }
+    
+    .gold:hower {
+        background-color: #ffb145;
+    }
+</style>
+
 <body>
-    <div>
-    <video autoplay muted loop style="width: 100%; height: 700px; object-fit: cover;">
-        <source src="GoPro Awards_ MTB with Hot Air Balloons in Cappadocia - GoPro (1080p, h264, youtube).mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <nav>
-        <img src="image copy 5.png" class="logo" style="width: 80px; height: 80px;">
-        <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">ADVENTURE SPORTS</a></li>
-            <li><a href="#">LOCATION</a></li>
-            <li><a href="#">CONTACT</a></li>
-            <li><a href="#">ABOUT US</a></li>
-        </ul>
-    </nav>
-</div>
-    
-    <div class="container">
-        <div class="box" id="box-1">
-            <img src="https://images.pexels.com/photos/27540187/pexels-photo-27540187/free-photo-of-rafting.jpeg?auto=compress&cs=tinysrgb&w=800" style="width: 335px;height: 640px;">
+    <div class="top" style="display: flex;">
+        <div style="background-color: gainsboro;height: 40px;width: 400px;margin-top: 30px; display: flex; border-radius: 20px;margin-left: 20px;">
+            <h2><a href="index.html">HOOPUP</a></h2>
         </div>
-        <div class="box" id="box-2">
-            <img src="https://images.pexels.com/photos/1431822/pexels-photo-1431822.jpeg?cs=srgb&dl=pexels-brett-sayles-1431822.jpg&fm=jpg" style="width:700px ; height: 200px;">
-            
+        <div style="background-color: gainsboro;height: 40px;width: 1000px;margin-top: 30px;display: flex;border-radius: 20px;margin-left: 10px;text-align: end;margin-right: 10px;">
+            <ul>
+                <li><a href="#">Explore Sports</a></li>
+                <li><a href="#">Plans For You</a></li>
+                <li><a href="#">Magazine</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
         </div>
-
-        <div class="box" id="box-3">3
-            <img src="https://www.udaipuradventures.com/wp-content/uploads/2022/02/aerial-view-of-lake-pichola-with-lake-palace-jag-2021-08-26-22-58-05-utc-2048x1559.jpg" style="height: 210px;width: 370px;">
+        <div style="background-color: black;color: white;height: 40px;width: 400px;margin-top: 30px;display: flex;border-radius: 20px;margin-left: 20px;">
+            <ul>
+                <li style="color: white;"><a href="#" style="color: white;">EXPLORE RIGHT NOW</a></li>
+            </ul>
         </div>
-        <div class="box" id="box-4">
-            <img src="https://images.pexels.com/photos/1732281/pexels-photo-1732281.jpeg?auto=compress&cs=tinysrgb&w=800" style="height: 210px;width: 330px;">
-           
-        </div>
-
-        <div class="box" id="box-5">
-            <img src="https://images.pexels.com/photos/27247877/pexels-photo-27247877/free-photo-of-two-raft-boats-on-the-sea-shore.jpeg?auto=compress&cs=tinysrgb&w=800" style="height: 210px;width: 370px;">
-        </div>
-        <div class="box" id="box-6">
-            <img src="https://images.pexels.com/photos/1732279/pexels-photo-1732279.jpeg?auto=compress&cs=tinysrgb&w=800" style="height:420px ; width: 330px ;">
-        </div>
-        <div class="box" id="box-7">
-            <img src="https://images.pexels.com/photos/18115391/pexels-photo-18115391/free-photo-of-people-on-pontoon-on-waterfall.jpeg?auto=compress&cs=tinysrgb&w=800" style="height:210px ; width: 330px ;">
-        </div>
-        
-        <div class="box" id="box-8">
-            <img src="https://images.pexels.com/photos/1615766/pexels-photo-1615766.jpeg?auto=compress&cs=tinysrgb&w=8000" style="height:210px ; width: 370px ;"> 
-        </div>
-
-      
     </div>
-    <div class="text-content">
-        <h2>River Rafting</h2>
-    
-   
-       <p> Dive into an exhilarating adventure with our world-class river rafting experiences! Whether you're an adrenaline junkie or a nature lover, river rafting offers the perfect blend of excitement and scenic beauty. Navigate through crystal-clear waters, conquer thrilling rapids, and soak in the stunning views of lush landscapes and rugged terrains.
-
-Our guided rafting tours cater to all skill levels, from beginners to seasoned paddlers. With professional guides and state-of-the-art safety equipment, we ensure a fun-filled and secure journey. Whether you're planning a solo trip, a family outing, or a team-building adventure, our customizable packages promise unforgettable memories.
-
-Explore a variety of rafting routes, each with unique challenges and breathtaking views. From calm, gentle streams perfect for relaxation to adrenaline-pumping Class IV rapids that test your limits, there's something for everyone. Along the way, witness wildlife in its natural habitat, discover hidden waterfalls, and enjoy the thrill of teamwork as you paddle through the surging waves.
-
-Our commitment to sustainability ensures that our adventures are eco-friendly, leaving minimal impact on the pristine rivers we cherish. Join us for an adventure that not only excites but also inspires, fostering a deeper connection to nature.</p>
-    </div >
-    <div class="text-content">
-        <h2>Where is River Rafting done?</h2>
-    
-    <p>        Rishikesh, Uttarakhand
-Known as the rafting capital of India, Rishikesh offers rafting on the Ganges River. The rapids range from Grade I to Grade IV, suitable for beginners and experts alike. The Shivpuri to Rishikesh stretch is the most famous.
-
- Manali, Himachal Pradesh
-The Beas River near Manali provides an exciting rafting experience with Grade II and III rapids. The journey offers beautiful views of the Kullu Valley.
-
- Ladakh, Jammu and Kashmir
-Rafting on the Zanskar River and Indus River is an unforgettable experience. The Zanskar’s "Grand Canyon" offers Grade III and IV rapids, surrounded by rugged, barren landscapes.
-
- Teesta River, Sikkim and Darjeeling
-The Teesta and Rangeet Rivers offer rafting opportunities in the Northeast, with a mix of thrilling rapids and calm stretches amidst lush greenery and hills.
-
- Coorg, Karnataka
-The Barapole River in Coorg provides rafting with exciting rapids set against the Western Ghats' stunning backdrop. It’s ideal for thrill-seekers in South India.</p>
-    </div>
-    <div class="text-content">
-        <h2>Eligibity for River Rafting</h2>
-    
-    <p>
-        Age
-Most rafting operators require participants to be at least 12 years old for moderate rapids (Class III) and 16 years old for more intense rapids (Class IV-V).
-Some family-friendly rafting trips on mild rapids (Class I-II) allow younger children, typically 6 years or older.
-2. Physical Health
-Participants should be in good physical health, as rafting can be physically demanding.
-Certain medical conditions, like heart problems, severe back issues, or pregnancy, may disqualify someone for safety reasons.
-3. Swimming Ability
-While not always mandatory, being able to swim is highly recommended. Even with a life jacket, strong swimming skills are helpful in case of capsizing or other water-related challenges.
-4. Weight Limit
-Some operators have weight limits (e.g., 250-300 lbs), depending on the equipment and safety considerations.
-5. Skill Level
-For intense rapids (Class IV-V), prior rafting experience or training might be required.
-6. Weather and Water Conditions
-During high water seasons, operators might tighten eligibility criteria for safety.</p>
-    </div>
-    <footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; margin-top: 50px;">
-        <div style="margin-bottom: 10px;">
-            <a href="#about" style="color: #fff; text-decoration: none; margin: 0 10px;">About</a>
-            <a href="#contact" style="color: #fff; text-decoration: none; margin: 0 10px;">Contact</a>
-            <a href="#privacy" style="color: #fff; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
+    <h1 style="font-size: 100px;margin-top: 50px;margin-left: 20px;">PLAN YOUR TRIP</h1>
+    <h1 style="color: rgb(88, 207, 254);font-size: 100px;margin-left: 20px;">➢ THE EXPLORATION SHOULD NEVER STOP. </h1>
+    <div style="display: flex;justify-content: space-between;">
+        <div style="width: 730px;height: 700px;background-color: gainsboro;border-radius: 20px;margin-left: 40px;">
+            <img src="https://images.pexels.com/photos/2433353/pexels-photo-2433353.jpeg" style="height: 700px;width: 730px;border-radius: 20px;">
         </div>
-        <p style="margin: 0;">© 2024 River-Rafting Adventures. All rights reserved.</p>
-        <div style="margin-top: 10px;">
-            <a href="https://www.facebook.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 5px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Facebook_icon_%28black%29.svg" alt="Facebook" style="width: 50px; vertical-align: middle; padding: 20px;">
-            </a>
-            <a href="https://www.twitter.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 5px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/2491px-Logo_of_Twitter.svg.png" alt="Twitter" style="width: 50px; vertical-align: middle; padding: 20px;">
-            </a>
-            <a href="https://www.instagram.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 5px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/2048px-Instagram_logo_2022.svg.png" alt="Instagram" style="width: 50px; vertical-align: middle; padding: 20px;">
-            </a>
+        <div style="width: 730px;height: 700px;border-radius: 20px;background-color: #E8A844;">
+
+            <details open>
+                <summary style="margin-top: 30px;">Rafting</summary>
+                <p>Rafting is a thrilling water sport enjoyed in various locations around the world, often in areas with fast-flowing rivers and stunning natural landscapes. Popular rafting destinations include regions in the United States, such as Colorado's
+                    Arkansas River and West Virginia's Gauley River, known for their challenging rapids. In Europe, countries like Switzerland and Austria offer rafting experiences on alpine rivers. New Zealand is renowned for its dramatic landscapes,
+                    with rafting opportunities on the Tongariro River and more. Other prime locations include Costa Rica, Nepal, and India, where adventurers can navigate rivers like the Pacuare and Ganges, offering both scenic beauty and adrenaline-pumping
+                    rapids.</p>
+            </details>
+
+            <details>
+                <summary>Discription</summary>
+                <p>Rafting is an adventurous water sport that involves navigating through fast-flowing rivers in an inflatable raft. It combines adrenaline-pumping action with beautiful natural surroundings, making it a popular outdoor activity. Rafting
+                    trips are typically categorized by the difficulty of the river’s rapids, ranging from calm waters to extreme white-water conditions. It is often done in groups, with participants working together to steer and navigate through the rapids.
+                    Popular rafting locations include rivers in countries like the United States, New Zealand, Costa Rica, and Nepal. This sport offers a unique opportunity for both adventure and exploration of stunning landscapes.</p>
+            </details>
+
+            <details>
+                <summary>Elegilibity</summary>
+                <p>Eligibility for rafting depends on factors like age, health, and experience. Most rafting companies have minimum age requirements, typically ranging from 8 to 12 years, depending on the river's difficulty level and the type of trip. Some
+                    tours may have a maximum age limit, particularly for more strenuous trips, to ensure participants are physically fit for the adventure. Good physical health is important, as rafting requires stamina, coordination, and strength, especially
+                    when navigating challenging rapids. While no prior rafting experience is usually required, beginners may be limited to easier rivers, while experienced rafters can take on more difficult rapids. Safety guidelines and equipment, like
+                    life jackets and helmets, are provided for all participants.</p>
+            </details>
+
+            <details>
+                <summary>Location</summary>
+                <p>India offers several exciting rafting destinations, each providing a unique experience for adventure enthusiasts. Rishikesh in Uttarakhand is considered the rafting capital of India, with the Ganges River offering a variety of rapids suitable
+                    for both beginners and experienced rafters. The Zanskar River in Ladakh provides a thrilling experience through deep gorges and stunning landscapes, ideal for more adventurous rafters. In Himachal Pradesh, the Beas River offers fast-flowing
+                    waters, making it a popular choice for adrenaline seekers. The Teesta River in Sikkim combines challenging rapids with beautiful views, suitable for both novices and seasoned rafters. Lastly, the Kundalika River in Maharashtra is known
+                    for its scenic beauty and provides excellent rafting opportunities, particularly during the monsoon season. These rivers cater to various skill levels, offering everything from serene floats to intense white-water challenges.</p>
+            </details>
+
+            <script>
+                const detailsElements = document.querySelectorAll("details");
+
+                detailsElements.forEach((details) => {
+                    details.addEventListener("click", function() {
+
+                        detailsElements.forEach((otherDetails) => {
+                            if (otherDetails !== details) {
+                                otherDetails.removeAttribute("open");
+                            }
+                        });
+                    });
+                });
+            </script>
+
+        </div>
+
+
+    </div>
+    <h1 style="font-size: 60px; margin-top: 120px; margin-left: 50px;">Popular Adventure Sports</h1>
+    <div class="gold" style="margin-top: 20px; display: flex; margin-left: 20px; margin-right: 20px; justify-content: space-around;">
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Rafting</h1>
+            <img src="https://t3.ftcdn.net/jpg/07/72/94/26/360_F_772942699_3Wx3En7Kxjlv85qBYe7F18mHrlOMePU6.jpg" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="rafting.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px; text-align: center;">EXPLORE</a></h2>
+            </div>
+        </div>
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Surfing</h1>
+            <img src="https://images.pexels.com/photos/9955800/pexels-photo-9955800.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="surf.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px; text-align: center;">EXPLORE</a></h2>
+            </div>
+        </div>
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Scuba Diving</h1>
+            <img src="https://images.pexels.com/photos/3266821/pexels-photo-3266821.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="scuba.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px; text-align: center;">EXPLORE</a></h2>
+            </div>
+        </div>
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Mountain Biking</h1>
+            <img src="https://images.pexels.com/photos/26757807/pexels-photo-26757807/free-photo-of-a-man-on-a-bicycle-with-a-dog.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="biking.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px;">EXPLORE</a></h2>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-section" style="margin-top: 100px;">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h2>Get exclusive updates<br>Subscribe to our newsletter</h2>
+                <p>Sign up to our newsletter to receive the latest travel updates.</p>
+                <form class="newsletter-form">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                    <div class="privacy-checkbox">
+                        <input type="checkbox" id="privacy" name="privacy">
+                        <label for="privacy">By subscribing, you agree to our Privacy Policy.</label>
+                    </div>
+                    <button type="submit" class="subscribe-button">SUBSCRIBE</button>
+                </form>
+            </div>
+            <div class="footer-right">
+                <ul>
+                    <li><a href="#">Adventure Sports</a></li>
+                    <li><a href="#">Adventure Near You</a></li>
+                    <li><a href="#">Magazine</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2035 by Hoopup.</p>
         </div>
     </footer>
+
 </body>
+
 </html>
