@@ -1,229 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        
-        .hero {
-            width: 100%;
-            height: 100vh;
-            background-image: linear-gradient(rgba(12, 3, 51, 0.3), rgba(12, 3, 51, 0.3));
-            position: relative;
-            padding: 0 5%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        nav {
-            width: 90%;
-            height: 100px;
-            background-color: #ffffff;
-            opacity: 0.4;
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 20px 5%;
-            display: flex;
-            align-content: center;
-            justify-content: space-between;
-        }
-        
-        nav ul li {
-            list-style: none;
-            display: inline-block;
-            margin-left: 40px;
-            margin-top: 25px;
-        }
-        
-        nav ul li a {
-            color: rgb(0, 0, 0);
-            text-decoration: none;
-            font-size: 17px;
-        }
-        
-        .container {
-            display: grid;
-            justify-content: center;
-            row-gap: 20px;
-            column-gap: 5px;
-            grid-template-columns: repeat(4, 350px);
-            grid-template-rows: repeat(3, 200px);
-            margin: 50px auto;
-        }
-        
-        .box {
-            border: 2px solid transparent;
-            padding: 12px;
-        }
-        
-        #box-1 {
-            grid-row-start: 1;
-            grid-row-end: 5;
-        }
-        
-        #box-2 {
-            grid-column: 2 / span 2;
-        }
-        
-        #box-6 {
-            grid-row: 2 / span 2;
-        }
-        
-        .text-content {
-            margin: 50px auto;
-            padding: 20px;
-            border: 0.5px solid rgb(113, 113, 113);
-            border-radius: 10px;
-            max-width: 1200px;
-            background-color: #f9f9f9;
-        }
-        
-        h2 {
-            font-size: 30px;
-            text-align: center;
-        }
-        
-        p {
-            font-size: 20px;
-            text-align: justify;
-        }
-
-   
-
-
-
-
-
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Bilbo+Swash+Caps&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=League+Script&family=Libre+Caslon+Display&family=Molle&family=Playwrite+PE:wght@100..400&display=swap" rel="stylesheet">
 </head>
+<style>
+    h1,
+    h2,
+    h3,
+    p,
+    h4,
+    h5,
+    h6 {
+        font-family: "Libre Caslon Display", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    ul li,
+    h2 {
+        list-style: none;
+        display: inline-block;
+        margin-left: 50px;
+        margin-right: 10px;
+        text-align: right;
+        margin-top: 10px;
+    }
+    
+    ul li a,
+    h2 {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-size: 17px;
+    }
+    
+    details {
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+    
+    summary {
+        cursor: pointer;
+        font-weight: bold;
+    }
+    
+    details:not(:last-of-type)::after {
+        content: "";
+        display: block;
+        border-bottom: 2px dotted #888;
+        margin: 10px 0;
+    }
+    
+    .footer-section {
+        background-color: #f9a32b;
+        padding: 80px 40px;
+        color: #333;
+    }
+    
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .footer-left {
+        flex: 1;
+        margin-right: 40px;
+        max-width: 600px;
+    }
+    
+    .footer-left h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+    
+    .footer-left p {
+        margin-bottom: 30px;
+        font-size: 18px;
+        color: #222;
+    }
+    
+    .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .newsletter-form label {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    .newsletter-form input[type="email"] {
+        padding: 15px;
+        border: none;
+        border-bottom: 1px solid #333;
+        outline: none;
+        font-size: 18px;
+        background-color: transparent;
+    }
+    
+    .privacy-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 16px;
+    }
+    
+    .subscribe-button {
+        background-color: #333;
+        color: #fff;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    .subscribe-button:hover {
+        background-color: #555;
+    }
+    
+    .footer-right {
+        flex: 1;
+        display: flex;
+        gap: 40px;
+    }
+    
+    .footer-right ul {
+        list-style: none;
+    }
+    
+    .footer-right li {
+        margin-bottom: 15px;
+    }
+    
+    .footer-right a {
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    
+    .footer-right a:hover {
+        text-decoration: underline;
+    }
+    
+    .footer-bottom {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 14px;
+    }
+    
+    .footer-bottom a {
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    .footer-bottom a:hover {
+        text-decoration: underline;
+    }
+    
+    .gold:hower {
+        background-color: #ffb145;
+    }
+</style>
+
 <body>
-    <div>
-    <video autoplay muted loop style="width: 100%; height: 700px; object-fit: cover;">
-        <source src="GoPro Awards_ MTB with Hot Air Balloons in Cappadocia - GoPro (1080p, h264, youtube).mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <nav>
-        <img src="image copy 5.png" class="logo" style="width: 80px; height: 80px;">
-        <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">ADVENTURE SPORTS</a></li>
-            <li><a href="#">LOCATION</a></li>
-            <li><a href="#">CONTACT</a></li>
-            <li><a href="#">ABOUT US</a></li>
-        </ul>
-    </nav>
-</div>
-    
-    <div class="container">
-        <div class="box" id="box-1">
-            <img src="https://cdn.pixabay.com/photo/2014/03/26/21/00/climber-299018_1280.jpg" style="width: 335px;height: 640px;">
+    <div class="top" style="display: flex;">
+        <div style="background-color: gainsboro;height: 40px;width: 400px;margin-top: 30px; display: flex; border-radius: 20px;margin-left: 20px;">
+            <h2><a href="index.html">HOOPUP</a></h2>
         </div>
-        <div class="box" id="box-2">
-            <img src="https://www.climbstrong.com/wp-content/uploads/slider/cache/65cd64751d34d9c7014bd19c7ff4d5e6/Team-Slide-2-scaled.jpg" style="width:700px ; height: 200px;">
-            
+        <div style="background-color: gainsboro;height: 40px;width: 1000px;margin-top: 30px;display: flex;border-radius: 20px;margin-left: 10px;text-align: end;margin-right: 10px;">
+            <ul>
+                <li><a href="#">Explore Sports</a></li>
+                <li><a href="#">Plans For You</a></li>
+                <li><a href="#">Magazine</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
         </div>
-
-        <div class="box" id="box-3">
-            <img src="https://ychef.files.bbci.co.uk/1280x720/p0jqv2ln.jpg" style="height: 210px;width: 370px;">
-        </div>
-        <div class="box" id="box-4">
-            <img src="https://image.thecrag.com/650x350/11/51/1151584e90676d463b3715cb73009706cd079045" style="height: 210px;width: 330px;">
-           
-        </div>
-
-        <div class="box" id="box-5">
-            <img src="https://www.raw-adventures.co.uk/themes/raw-adventures/assets/images/considering-the-move-from-indoor-to-outdoor-climbing-img1.webp" style="height: 210px;width: 370px;">
-        </div>
-        <div class="box" id="box-6">
-            <img src="https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg?auto=compress&cs=tinysrgb&w=1200"style="height:420px ; width: 330px ;">
-        </div>
-        <div class="box" id="box-7">
-            <img src="https://dklkud2sn1tvi.cloudfront.net/blogposts/656d9c0509b9c7bee7abaabd/cover.jpg" style="height:210px ; width: 330px ;">
-        </div>
-        
-        <div class="box" id="box-8">
-            <img src="https://www.climbfit.com.au/wp-content/uploads/2020/10/LRM_EXPORT_6923110695509_20190202_212254494.jpg" style="height:210px ; width: 370px ;"> 
+        <div style="background-color: black;color: white;height: 40px;width: 400px;margin-top: 30px;display: flex;border-radius: 20px;margin-left: 20px;">
+            <ul>
+                <li style="color: white;"><a href="#" style="color: white;">EXPLORE RIGHT NOW</a></li>
+            </ul>
         </div>
     </div>
-     <div class="text-content">
-        <h2>Rock Climbing</h2>
-    <p>
-        Discover the ultimate adventure with rock climbing—a perfect blend of fitness, fun, and the great outdoors. Whether you’re an adrenaline junkie or a nature enthusiast, rock climbing offers something for everyone. It’s more than just a sport; it’s a lifestyle that challenges your body, sharpens your mind, and connects you to breathtaking natural landscapes.
-
-At [Your Company Name], we provide rock climbing experiences tailored to climbers of all skill levels. From beginners looking to learn the basics to seasoned climbers seeking new challenges, our team of certified instructors ensures a safe, fun, and fulfilling experience. With top-notch equipment and a commitment to safety, we make rock climbing accessible and enjoyable for all.
-
-Our climbing routes cater to all preferences, ranging from indoor climbing walls designed for skill-building to outdoor expeditions that take you to stunning cliffs, rugged mountains, and scenic terrains. Each climb is a chance to test your limits, build confidence, and create unforgettable memories.
-
-Join a community of adventurers who share your passion for climbing and exploration. Whether you’re planning a solo climb, a family outing, or a team-building event, we’re here to make it an extraordinary journey.</p>
-
-
-    </div>
-    
-     <div class="text-content">
-       <h2> Where is Rock Clibing done?</h2>
-
-
-
-<p>Rock climbing is an adventurous activity that takes place across a wide range of terrains, offering challenges for every skill level. From rugged mountains to urban climbing gyms, rock climbing destinations vary to suit preferences and expertise.
-
-Outdoor climbing is often done in natural environments such as cliffs, boulders, and mountains. Famous destinations include Yosemite National Park in the USA, known for its granite walls like El Capitan; Kalymnos in Greece, offering stunning seaside climbs; and the sandstone towers of Wadi Rum in Jordan. Other popular spots include the limestone cliffs of Thailand’s Railay Beach, the crags of the French Alps, and South Africa’s boulder-strewn Cederberg region.
-
-Indoor rock climbing provides a controlled setting for beginners and seasoned climbers alike. Modern climbing gyms are equipped with artificial walls that replicate outdoor conditions, featuring routes for bouldering, lead climbing, and top-rope climbing. These facilities are ideal for skill development and year-round climbing.
-
-For those seeking a blend of urban and outdoor experiences, cities often have climbing parks and converted quarries. For example, Stoney Point in Los Angeles offers outdoor bouldering close to the city, while other areas worldwide blend urban accessibility with natural beauty.
-
-Whether scaling a towering cliff or tackling a route at your local gym, rock climbing is a sport that offers boundless opportunities for exploration, challenge, and connection with nature.
-
-Explore your next climb and find a place that inspires your adventure!</p>
-    </div>
-     <div class="text-content">
-        <h2>Elibility for Rock Climbing</h2>
-
-       <p> Age Requirements:
-Participants must be at least 10 years old to join our climbing activities. Children under 18 must have a parent or legal guardian's consent.
-
-Physical Fitness:
-Rock climbing demands a moderate level of physical fitness. Participants should have sufficient strength, endurance, and mobility to climb safely. If you have pre-existing health conditions, consult with a medical professional before participating.
-
-Waiver and Consent Form:
-All participants must sign a waiver form before beginning any climbing activities. For minors, a parent or guardian must sign on their behalf.
-
-Proper Attire and Equipment:
-Climbers must wear suitable athletic clothing and closed-toe shoes. Safety gear, such as harnesses and helmets, will be provided and must be used as instructed.
-
-Skill Level:
-Whether you’re a beginner or an experienced climber, we have activities tailored to your skill level. Beginners are required to attend an introductory session to learn safety basics and climbing techniques.
-
-Safety and Conduct:
-All participants must follow safety guidelines and instructions from our trained staff. Respect for fellow climbers and the environment is essential.</p>
-    </div>
-    <footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; margin-top: 50px;">
-        <div style="margin-bottom: 10px;">
-            <a href="#about" style="color: #fff; text-decoration: none; margin: 0 10px;">About</a>
-            <a href="#contact" style="color: #fff; text-decoration: none; margin: 0 10px;">Contact</a>
-            <a href="#privacy" style="color: #fff; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
+    <h1 style="font-size: 100px;margin-top: 50px;margin-left: 20px;">PLAN YOUR TRIP</h1>
+    <h1 style="color: rgb(88, 207, 254);font-size: 100px;margin-left: 20px;">➢ THE EXPLORATION SHOULD NEVER STOP. </h1>
+    <div style="display: flex;justify-content: space-between;">
+        <div style="width: 730px;height: 700px;background-color: gainsboro;border-radius: 20px;margin-left: 40px;">
+            <img src="https://i.guim.co.uk/img/media/4962c177477996fe6c9af7e3d9919f46c3bc4473/0_0_5472_3283/master/5472.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=5511643bff961f9e393897de51df962d" style="height: 700px;width: 730px;border-radius: 20px;">
         </div>
-        <p style="margin: 0;">© 2024 Rock Climbing Adventures. All rights reserved.</p>
-        <div style="margin-top: 10px;">
-            <a href="https://www.facebook.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 5px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Facebook_icon_%28black%29.svg" alt="Facebook" style="width: 50px; vertical-align: middle; padding: 20px;">
-            </a>
-            <a href="https://www.twitter.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 5px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/2491px-Logo_of_Twitter.svg.png" alt="Twitter" style="width: 50px; vertical-align: middle; padding: 20px;">
-            </a>
-            <a href="https://www.instagram.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 5px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/2048px-Instagram_logo_2022.svg.png" alt="Instagram" style="width: 50px; vertical-align: middle; padding: 20px;">
-            </a>
+        <div style="width: 730px;height: 700px;border-radius: 20px;background-color: #E8A844;">
+
+            <details open>
+                <summary style="margin-top: 30px;">Rock Climbing</summary>
+                <p>Rock climbing is a thrilling outdoor sport where individuals scale natural rock formations or artificial walls using strength, technique, and endurance. It challenges physical and mental limits, requiring problem-solving skills and focus.
+                    Whether bouldering or traditional climbing, it offers adventure, fitness, and a sense of accomplishment for enthusiasts.</p>
+            </details>
+
+            <details>
+                <summary>Discription</summary>
+                <p>Skydiving is an exhilarating adventure sport where participants jump from an aircraft, freefalling at high speeds before deploying a parachute to safely descend to the ground. The experience combines adrenaline, breathtaking views, and
+                    a sense of absolute freedom. After the initial freefall, skydivers enjoy a peaceful glide under the parachute canopy, taking in expansive vistas. It can be done solo or tandem, with beginners often jumping alongside experienced instructors.
+                    Skydiving is a favorite for thrill-seekers and those celebrating milestones, offering a unique perspective of the world and a profound sense of achievement, making it a life-changing experience for many.</p>
+            </details>
+
+            <details>
+                <summary>Elegilibity</summary>
+                <p>Age Requirement: Most skydiving centers require participants to be at least 18 years old. For individuals under 18, parental consent may be necessary, depending on the country or center. Weight Limit: Skydivers typically need to weigh
+                    between 90-100 kg (200-220 lbs). The exact weight limit may vary based on the skydiving center and equipment used. Health: Good physical health is essential. Participants should not have conditions such as heart disease, epilepsy,
+                    or severe asthma. A medical clearance from a doctor may be required in some cases. Fitness: Basic physical fitness is needed to handle the rigors of the jump and the landing. Training: Beginners must undergo a short training session
+                    before their first jump. For tandem skydiving, training may last a few hours. Solo skydiving requires more extensive training and certification. Always check with the local skydiving center for specific eligibility requirements.</p>
+            </details>
+
+            <details>
+                <summary>Location</summary>
+                <p>India offers a variety of exciting locations for skydiving, providing both stunning landscapes and an adrenaline-pumping experience. Mysuru in Karnataka is one of the most renowned spots, offering tandem skydiving with views of the city
+                    and surrounding forests. Deesa in Gujarat is another popular destination, known for its vast open skies and scenic surroundings. In Uttar Pradesh, Aligarh hosts regular skydiving events, attracting enthusiasts from across the country.
+                    Other notable locations include Pondicherry, known for jumps over the coastline, and Bangalore, offering jumps with picturesque views of the countryside. These locations offer thrilling experiences for both beginners and seasoned jumpers.</p>
+            </details>
+
+            <script>
+                const detailsElements = document.querySelectorAll("details");
+
+                detailsElements.forEach((details) => {
+                    details.addEventListener("click", function() {
+
+                        detailsElements.forEach((otherDetails) => {
+                            if (otherDetails !== details) {
+                                otherDetails.removeAttribute("open");
+                            }
+                        });
+                    });
+                });
+            </script>
+
+        </div>
+
+
+    </div>
+    <h1 style="font-size: 60px; margin-top: 120px; margin-left: 50px;">Popular Adventure Sports</h1>
+    <div class="gold" style="margin-top: 20px; display: flex; margin-left: 20px; margin-right: 20px; justify-content: space-around;">
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Rafting</h1>
+            <img src="https://images.pexels.com/photos/3413678/pexels-photo-3413678.jpeg?auto=compress&cs=tinysrgb&w=1200" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="rafting.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px; text-align: center;">EXPLORE</a></h2>
+            </div>
+        </div>
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Surfing</h1>
+            <img src="https://images.pexels.com/photos/9955800/pexels-photo-9955800.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="surf.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px; text-align: center;">EXPLORE</a></h2>
+            </div>
+        </div>
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Scuba Diving</h1>
+            <img src="https://images.pexels.com/photos/3266821/pexels-photo-3266821.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="scuba.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px; text-align: center;">EXPLORE</a></h2>
+            </div>
+        </div>
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Mountain Biking</h1>
+            <img src="https://images.pexels.com/photos/26757807/pexels-photo-26757807/free-photo-of-a-man-on-a-bicycle-with-a-dog.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="biking.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px;">EXPLORE</a></h2>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-section" style="margin-top: 100px;">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h2>Get exclusive updates<br>Subscribe to our newsletter</h2>
+                <p>Sign up to our newsletter to receive the latest travel updates.</p>
+                <form class="newsletter-form">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                    <div class="privacy-checkbox">
+                        <input type="checkbox" id="privacy" name="privacy">
+                        <label for="privacy">By subscribing, you agree to our Privacy Policy.</label>
+                    </div>
+                    <button type="submit" class="subscribe-button">SUBSCRIBE</button>
+                </form>
+            </div>
+            <div class="footer-right">
+                <ul>
+                    <li><a href="#">Adventure Sports</a></li>
+                    <li><a href="#">Adventure Near You</a></li>
+                    <li><a href="#">Magazine</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2035 by Hoopup.</p>
         </div>
     </footer>
+
 </body>
+
 </html>
