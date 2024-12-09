@@ -1,281 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        
-        .hero {
-            width: 100%;
-            height: 100vh;
-            background-image: linear-gradient(rgba(12, 3, 51, 0.3), rgba(12, 3, 51, 0.3));
-            position: relative;
-            padding: 0 5%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        nav {
-            width: 90%;
-            height: 100px;
-            background-color: #ffffff;
-            opacity: 0.4;
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 20px 5%;
-            display: flex;
-            align-content: center;
-            justify-content: space-between;
-        }
-        
-        nav ul li {
-            list-style: none;
-            display: inline-block;
-            margin-left: 40px;
-            margin-top: 25px;
-        }
-        
-        nav ul li a {
-            color: rgb(0, 0, 0);
-            text-decoration: none;
-            font-size: 17px;
-        }
-        
-        .container {
-            display: grid;
-            justify-content: center;
-            row-gap: 20px;
-            column-gap: 5px;
-            grid-template-columns: repeat(4, 350px);
-            grid-template-rows: repeat(3, 200px);
-            margin: 50px auto;
-        }
-        
-        .box {
-            border: 2px solid transparent;
-            padding: 12px;
-        }
-        
-        #box-1 {
-            grid-row-start: 1;
-            grid-row-end: 5;
-        }
-        
-        #box-2 {
-            grid-column: 2 / span 2;
-        }
-        
-        #box-6 {
-            grid-row: 2 / span 2;
-        }
-        
-        .text-content {
-            margin: 50px auto;
-            padding: 20px;
-            border: 0.5px solid rgb(113, 113, 113);
-            border-radius: 10px;
-            max-width: 1200px;
-            background-color: #f9f9f9;
-        }
-        
-        h2 {
-            font-size: 30px;
-            text-align: center;
-        }
-        
-        p {
-            font-size: 20px;
-            text-align: justify;
-        }
-   
-
-
-
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&family=Bilbo+Swash+Caps&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=League+Script&family=Libre+Caslon+Display&family=Molle&family=Playwrite+PE:wght@100..400&display=swap" rel="stylesheet">
 </head>
+<style>
+    h1,
+    h2,
+    h3,
+    p,
+    h4,
+    h5,
+    h6 {
+        font-family: "Libre Caslon Display", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    
+    ul li,
+    h2 {
+        list-style: none;
+        display: inline-block;
+        margin-left: 50px;
+        margin-right: 10px;
+        text-align: right;
+        margin-top: 10px;
+    }
+    
+    ul li a,
+    h2 {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-size: 17px;
+    }
+    
+    details {
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+    
+    summary {
+        cursor: pointer;
+        font-weight: bold;
+    }
+    
+    details:not(:last-of-type)::after {
+        content: "";
+        display: block;
+        border-bottom: 2px dotted #888;
+        margin: 10px 0;
+    }
+    
+    .footer-section {
+        background-color: #f9a32b;
+        padding: 80px 40px;
+        color: #333;
+    }
+    
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .footer-left {
+        flex: 1;
+        margin-right: 40px;
+        max-width: 600px;
+    }
+    
+    .footer-left h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+    
+    .footer-left p {
+        margin-bottom: 30px;
+        font-size: 18px;
+        color: #222;
+    }
+    
+    .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .newsletter-form label {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    .newsletter-form input[type="email"] {
+        padding: 15px;
+        border: none;
+        border-bottom: 1px solid #333;
+        outline: none;
+        font-size: 18px;
+        background-color: transparent;
+    }
+    
+    .privacy-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 16px;
+    }
+    
+    .subscribe-button {
+        background-color: #333;
+        color: #fff;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    .subscribe-button:hover {
+        background-color: #555;
+    }
+    
+    .footer-right {
+        flex: 1;
+        display: flex;
+        gap: 40px;
+    }
+    
+    .footer-right ul {
+        list-style: none;
+    }
+    
+    .footer-right li {
+        margin-bottom: 15px;
+    }
+    
+    .footer-right a {
+        color: #333;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    
+    .footer-right a:hover {
+        text-decoration: underline;
+    }
+    
+    .footer-bottom {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 14px;
+    }
+    
+    .footer-bottom a {
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    .footer-bottom a:hover {
+        text-decoration: underline;
+    }
+    
+    .gold:hower {
+        background-color: #ffb145;
+    }
+</style>
+
 <body>
-    <div>
-    <video autoplay muted loop style="width: 100%; height: 700px; object-fit: cover;">
-        <source src="GoPro Awards_ MTB with Hot Air Balloons in Cappadocia - GoPro (1080p, h264, youtube).mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <nav>
-        <img src="image copy 5.png" class="logo" style="width: 80px; height: 80px;">
-        <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">ADVENTURE SPORTS</a></li>
-            <li><a href="#">LOCATION</a></li>
-            <li><a href="#">CONTACT</a></li>
-            <li><a href="#">ABOUT US</a></li>
-        </ul>
-    </nav>
-</div>
-    
-    <div class="container">
-        <div class="box" id="box-1">
-            <img src="https://images.pexels.com/photos/1635089/pexels-photo-1635089.jpeg?auto=compress&cs=tinysrgb&w=800" style="width: 335px;height: 640px;">
+    <div class="top" style="display: flex;">
+        <div style="background-color: gainsboro;height: 40px;width: 400px;margin-top: 30px; display: flex; border-radius: 20px;margin-left: 20px;">
+            <h2><a href="index.html">HOOPUP</a></h2>
         </div>
-        <div class="box" id="box-2">
-            <img src="https://images.pexels.com/photos/358118/pexels-photo-358118.jpeg?auto=compress&cs=tinysrgb&w=800" style="width:700px ; height: 200px;">
-            
+        <div style="background-color: gainsboro;height: 40px;width: 1000px;margin-top: 30px;display: flex;border-radius: 20px;margin-left: 10px;text-align: end;margin-right: 10px;">
+            <ul>
+                <li><a href="#">Explore Sports</a></li>
+                <li><a href="#">Plans For You</a></li>
+                <li><a href="#">Magazine</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
         </div>
+        <div style="background-color: black;color: white;height: 40px;width: 400px;margin-top: 30px;display: flex;border-radius: 20px;margin-left: 20px;">
+            <ul>
+                <li style="color: white;"><a href="#" style="color: white;">EXPLORE RIGHT NOW</a></li>
+            </ul>
+        </div>
+    </div>
+    <h1 style="font-size: 100px;margin-top: 50px;margin-left: 20px;">PLAN YOUR TRIP</h1>
+    <h1 style="color: rgb(88, 207, 254);font-size: 100px;margin-left: 20px;">➢ THE EXPLORATION SHOULD NEVER STOP. </h1>
+    <div style="display: flex;justify-content: space-between;">
+        <div style="width: 730px;height: 700px;background-color: gainsboro;border-radius: 20px;margin-left: 40px;">
+            <img src="https://images.pexels.com/photos/2433353/pexels-photo-2433353.jpeg" style="height: 700px;width: 730px;border-radius: 20px;">
+        </div>
+        <div style="width: 730px;height: 700px;border-radius: 20px;background-color: #E8A844;">
 
-        <div class="box" id="box-3">
-            <img src="https://images.pexels.com/photos/352091/pexels-photo-352091.jpeg?auto=compress&cs=tinysrgb&w=800" style="height: 210px;width: 370px;">
-        </div>
-        <div class="box" id="box-4">
-            <img src="https://images.pexels.com/photos/287228/pexels-photo-287228.jpeg?auto=compress&cs=tinysrgb&w=800" style="height: 210px;width: 330px;">
-           
-        </div>
+            <details open>
+                <summary style="margin-top: 30px;">Skiing</summary>
+                <p>Rock climbing is an adventurous sport where individuals ascend natural rock formations or artificial climbing walls using strength, technique, and problem-solving skills. It requires physical endurance, focus, and mental fortitude. Climbers
+                    face challenges like difficult routes and varying terrains, offering a rewarding sense of accomplishment and excitement.</p>
+            </details>
 
-        <div class="box" id="box-5">
-            <img src="https://images.pexels.com/photos/209955/pexels-photo-209955.jpeg?auto=compress&cs=tinysrgb&w=800" style="height: 210px;width: 370px;">
-        </div>
-        <div class="box" id="box-6">
-            <img src="https://images.pexels.com/photos/3475835/pexels-photo-3475835.jpeg?auto=compress&cs=tinysrgb&w=800" style="height:420px ; width: 330px ;">
-        </div>
-        <div class="box" id="box-7">
-            <img src="https://images.pexels.com/photos/1741540/pexels-photo-1741540.jpeg?auto=compress&cs=tinysrgb&w=800" style="height:210px ; width: 330px ;">
-        </div>
-        
-        <div class="box" id="box-8">
-            <img src="https://images.pexels.com/photos/6141660/pexels-photo-6141660.jpeg?auto=compress&cs=tinysrgb&w=800" style="height:210px ; width: 370px ;"> 
+            <details>
+                <summary>Discription</summary>
+                <p>Skiing is a thrilling winter sport that involves gliding over snow-covered slopes on skis. It comes in various forms, including alpine skiing (downhill), cross-country skiing, and freestyle skiing. Skiers use poles for balance and control,
+                    mastering techniques like turning, stopping, and navigating different terrains. Skiing is both a recreational activity and a competitive sport, offering challenges for all skill levels. Popular destinations for skiing include mountain
+                    resorts, where beginners and experts can enjoy the sport on various runs. The experience provides a rush of adrenaline, stunning mountain views, and an opportunity for physical fitness and outdoor adventure.</p>
+            </details>
+
+            <details>
+                <summary>Elegilibity</summary>
+                <p>Eligibility for skiing depends on factors like age, fitness, and skill level. Children as young as 3 or 4 can start with beginner programs, while adults of all ages can participate, though older adults may need to take extra precautions
+                    due to health concerns. Skiing requires physical fitness, particularly strength, balance, and endurance. Beginners can take lessons on easy slopes, while intermediate and advanced skiers need prior experience. Many resorts offer adaptive
+                    programs for those with disabilities. Safety gear like helmets is essential, and minors may require parental consent. It's recommended to check specific resort guidelines for additional requirements.</p>
+            </details>
+
+            <details>
+                <summary>Location</summary>
+                <p>Skiing can be enjoyed in various locations worldwide, from iconic mountain resorts in Europe and North America to lesser-known gems in Asia and South America. Famous ski destinations include the Swiss Alps, the French Pyrenees, and Austria,
+                    offering world-class slopes and facilities. In North America, regions like Colorado, Utah, and British Columbia are renowned for their expansive ski resorts. Japan is also gaining popularity, with its abundant snowfall and unique terrain.
+                    New Zealand and Argentina provide excellent skiing opportunities in the Southern Hemisphere, allowing enthusiasts to ski year-round. Skiing locations vary widely, offering diverse experiences for skiers of all levels.</p>
+            </details>
+
+            <script>
+                const detailsElements = document.querySelectorAll("details");
+
+                detailsElements.forEach((details) => {
+                    details.addEventListener("click", function() {
+
+                        detailsElements.forEach((otherDetails) => {
+                            if (otherDetails !== details) {
+                                otherDetails.removeAttribute("open");
+                            }
+                        });
+                    });
+                });
+            </script>
+
         </div>
 
 
     </div>
-    <div class="text-content">
-        <h2>Skiing</h2>
-    
-    <p>
-        Hit the Slopes: Experience the Thrill of Skiing
-Are you ready for an unforgettable winter adventure? Skiing offers the perfect blend of excitement, skill, and stunning alpine scenery. Whether you’re a seasoned skier or a first-timer, our ski destinations and services cater to everyone looking to enjoy the crisp mountain air and powdery snow.
-
-
-Adrenaline Rush: Feel the thrill of racing down snowy slopes at top speed.
-Stunning Mountain Views: Experience breathtaking vistas of snow-capped peaks, valleys, and forests.
-Winter Fitness: Skiing provides an excellent full-body workout while enjoying the great outdoors.
-Snow Sports for All: Whether you’re gliding gracefully on a gentle slope or tackling advanced terrain, there’s a challenge for every skill level.
-Our Skiing Services
-Ski Lessons: Beginners can take advantage of our ski schools with professional instructors who will guide you step by step. For advanced skiers, our expert guides can help you improve your technique and tackle more challenging slopes.
-Ski Equipment Rental: From skis and snowboards to helmets and goggles, we provide top-quality rental gear, so you don’t have to bring your own.
-Guided Ski Tours: Explore the most scenic routes and best hidden slopes with our experienced guides who know the mountain like the back of their hand.
-Advanced Skiing Adventures: For those looking for an extra challenge, we offer backcountry skiing, off-piste runs, and heli-skiing.
-Top Skiing Destinations
-Gulmarg, Jammu & Kashmir: Known for its pristine powder snow and stunning landscapes, Gulmarg is a haven for adventure lovers and skiers alike.
-Manali, Himachal Pradesh: This picturesque hill station offers a variety of slopes for skiers of all levels, with a vibrant après-ski culture.
-Leh-Ladakh: For the thrill-seeker, the rugged terrain and high-altitude slopes of Ladakh provide an extraordinary skiing experience.
-Auli, Uttarakhand: Offering some of the best slopes in India, Auli is perfect for beginners and advanced skiers, with panoramic views of the Himalayan ranges.
-Who Can Ski?
-Age: Skiing is suitable for all ages, from young children to adults.
-Experience Level: Whether you’re a first-time skier or a seasoned pro, there are slopes for everyone. We offer beginner-friendly slopes as well as challenging black runs for expert skiers.
-Fitness: Skiing is an active sport that requires a reasonable level of fitness. If you’re new to skiing, it’s advisable to start with lessons to learn proper technique and avoid injury.
-Health Considerations: Those with severe medical conditions (like heart issues or joint problems) should consult a doctor before participating in skiing.
-What to Expect on the Slopes
-Lessons and Training: Get the basics down with our certified ski instructors who will teach you everything from how to balance to advanced techniques.
-Equipment: Use the latest ski equipment, carefully selected for safety, comfort, and performance.
-Après-ski: After a day of skiing, relax and unwind with delicious food, cozy lounges, and après-ski activities like hot drinks, spa visits, and live entertainment.
-Book Your Ski Adventure Today
-Ready to glide down the slopes and embrace the winter wonderland? Book your skiing adventure with us today and make memories that will last a lifetime. Whether you're coming for a weekend getaway or a week-long adventure, we're here to ensure you have the time of your life.</p>
-        
-    </div>
- <div class="text-content">
-        <h2>Where is Skiing done?</h2>
-    
-    <p>
-        Switzerland
-Switzerland is known for its world-class ski resorts, offering stunning views of the Alps, well-maintained slopes, and top-tier facilities.
-
-Famous Resorts: Zermatt, St. Moritz, Verbier, Davos
-Best For: Advanced skiers and those looking for luxury resorts, but also offering slopes for all levels.
-2. France
-France is home to some of the largest ski areas in the world, with extensive interconnected resorts.
-
-Famous Resorts: Chamonix, Courchevel, Val d'Isère, Les Arcs
-Best For: Skiing enthusiasts of all levels, from beginners to experts, with a range of activities beyond skiing such as après-ski and fine dining.
-3. Austria
-Austria offers some of the best skiing experiences in Europe, with traditional alpine villages and expansive ski regions.
-
-Famous Resorts: Kitzbühel, St. Anton, Innsbruck, Sölden
-Best For: Both casual and expert skiers, with many resorts offering ski schools and après-ski entertainment.
-4. United States
-The U.S. offers a range of ski destinations, from the east coast’s resorts to the west coast’s more famous mountainous regions.
-
-Famous Resorts: Aspen (Colorado), Park City (Utah), Jackson Hole (Wyoming), Lake Tahoe (California/Nevada)
-Best For: Skiers looking for variety in terrain and resorts. Resorts like Aspen and Park City cater to high-end skiers, while resorts like Jackson Hole are known for their challenging slopes.
-5. Canada
-Canada has some of the best powder snow in the world, with vast ski resorts and long ski seasons.
-
-Famous Resorts: Whistler Blackcomb (British Columbia), Banff (Alberta), Mont-Tremblant (Quebec)
-Best For: Powder skiing, advanced and intermediate skiers, as well as stunning landscapes and excellent facilities.
-6. Japan
-Japan is famous for its deep, powdery snow, especially in areas like Hokkaido.
-
-Famous Resorts: Niseko, Hakuba, Furano, Nozawa Onsen
-Best For: Skiers who love powder snow and unique skiing experiences. Japan is also renowned for its après-ski culture, which includes hot springs (onsen) and delicious food.</p>
-    </div>
-    <div class="text-content">
-        <h2>Eligibilty for Skiing</h2>
-    
-    <p>
-        Age Limit
-Minimum Age: Most ski resorts and ski schools accept children from the age of 3 to 5 years old for ski lessons, although this varies. Resorts may offer ski programs for younger children that focus on fun and basic skills.
-Maximum Age: There is usually no maximum age limit for skiing, as long as the person is in good health and physical condition. Many ski resorts offer lessons for seniors and have specialized equipment for older skiers. However, extreme conditions or very advanced slopes may not be suitable for older adults without prior experience or training.
-2. Physical Fitness
-Basic Skiing: For beginner skiers, a basic level of physical fitness is sufficient. Skiing involves balance, leg strength, and coordination, so it helps if participants are generally active and able to walk, stand, and bend for long periods.
-Advanced Skiing: More advanced or competitive skiing, such as off-piste skiing or freestyle skiing, requires higher levels of fitness, flexibility, and strength. Participants should be prepared for more physically demanding activities like mogul runs, jumps, and rapid descents.
-3. Health Considerations
-Medical Conditions: Skiing is a physically demanding sport. Those with heart conditions, respiratory issues, or severe joint problems should consult a doctor before participating in skiing. Skiing also requires balance and coordination, which can be challenging for individuals with neurological conditions or mobility impairments.
-Pregnancy: Pregnant women are typically advised not to ski, especially on advanced slopes or during the later stages of pregnancy, due to the risk of falls and injury.
-Injuries: If you have a history of severe injuries, such as knee or ankle problems, you may need to speak with a doctor to ensure skiing is safe for you. Protective gear like knee braces or wrist guards can help.
-4. Skill Level
-Beginner Skiers: Skiing schools offer lessons for all levels, from beginners to experts. Beginners typically start on easy slopes with a gentle incline to get the basics down, such as turning, stopping, and controlling speed.
-Intermediate Skiers: If you're comfortable with basic skiing techniques, you can try intermediate slopes with moderate challenges, like steeper gradients and some obstacles (e.g., moguls or small jumps).
-Advanced Skiers: Skiers with extensive experience can take on more difficult runs, such as expert-level slopes, backcountry skiing, and off-piste skiing.
-5. Weight and Height Limits
-Some ski resorts and ski rental shops may have weight and height restrictions for ski equipment or chairlifts, but this is generally not a major concern unless the person is outside typical ranges for standard equipment (e.g., for very tall or large individuals).
-Lift Restrictions: Some ski resorts may have height or weight limits for ski lifts or gondolas, but this is relatively uncommon.
-6. Equipment and Gear
-Ski resorts typically provide rental equipment for beginners and intermediate skiers, including skis, poles, boots, and helmets. It's advisable to wear ski-specific clothing, such as waterproof jackets, pants, and thermal layers.
-For advanced skiers or backcountry enthusiasts, additional gear like avalanche transceivers, snowshoes, and backpacks may be necessary.
-7. Safety Requirements
-Helmets: Many ski resorts require skiers, especially beginners and children, to wear helmets for safety.
-Waivers: Most resorts require participants to sign a liability waiver acknowledging the risks of skiing before starting lessons or skiing on the slopes.
-Insurance: It’s often recommended to have travel insurance that covers skiing accidents or injuries, as skiing carries a higher risk of injury compared to other sports.
-8. Weather Conditions
-Skiing can be impacted by weather conditions such as fog, snowstorms, or extreme cold. Resorts often adjust the slopes’ availability or open and close certain areas based on these factors. It’s important to check weather reports and resort updates before skiing.
-9. Beginner-Friendly Services
-Ski Lessons: Most resorts offer ski schools with trained instructors who can teach beginners how to ski. These lessons may be group lessons or private sessions.
-Child-Specific Programs: Ski resorts often offer children's ski schools, where kids can learn to ski in a fun and safe environment. These programs often include age-appropriate teaching and equipment.</p>
-    </div>
-    <footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; margin-top: 50px;">
-        <div style="margin-bottom: 10px;">
-            <a href="#about" style="color: #fff; text-decoration: none; margin: 0 10px;">About</a>
-            <a href="#contact" style="color: #fff; text-decoration: none; margin: 0 10px;">Contact</a>
-            <a href="#privacy" style="color: #fff; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
+    <h1 style="font-size: 60px; margin-top: 120px; margin-left: 50px;">Popular Adventure Sports</h1>
+    <div class="gold" style="margin-top: 20px; display: flex; margin-left: 20px; margin-right: 20px; justify-content: space-around;">
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Rafting</h1>
+            <img src="https://images.pexels.com/photos/3413678/pexels-photo-3413678.jpeg?auto=compress&cs=tinysrgb&w=1200" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="rafting.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px; text-align: center;">EXPLORE</a></h2>
+            </div>
         </div>
-        <p style="margin: 0;">© 2024 Skiing Adventures. All rights reserved.</p>
-        <div style="margin-top: 10px;">
-            <a href="https://www.facebook.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 5px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Facebook_icon_%28black%29.svg" alt="Facebook" style="width: 50px; vertical-align: middle; padding: 20px;">
-            </a>
-            <a href="https://www.twitter.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 5px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/2491px-Logo_of_Twitter.svg.png" alt="Twitter" style="width: 50px; vertical-align: middle; padding: 20px;">
-            </a>
-            <a href="https://www.instagram.com" target="_blank" style="color: #fff; text-decoration: none; margin: 0 5px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/2048px-Instagram_logo_2022.svg.png" alt="Instagram" style="width: 50px; vertical-align: middle; padding: 20px;">
-            </a>
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Surfing</h1>
+            <img src="https://images.pexels.com/photos/9955800/pexels-photo-9955800.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="surf.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px; text-align: center;">EXPLORE</a></h2>
+            </div>
+        </div>
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Scuba Diving</h1>
+            <img src="https://images.pexels.com/photos/3266821/pexels-photo-3266821.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="scuba.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px; text-align: center;">EXPLORE</a></h2>
+            </div>
+        </div>
+        <div class="gold" style="width: 350px; height: 650px; border-radius: 20px; background-color: gainsboro; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#E8A844'" onmouseout="this.style.backgroundColor='gainsboro'">
+            <h1 style="text-align: center; margin-top: 15px;">Mountain Biking</h1>
+            <img src="https://images.pexels.com/photos/26757807/pexels-photo-26757807/free-photo-of-a-man-on-a-bicycle-with-a-dog.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" style="width: 295px; height: 450px; margin-top: 30px; margin-left: 30px; margin-right: 40px;">
+            <div style="background-color: gainsboro; width: 330px; height: 50px; text-align: center; border-radius: 25px; margin-top: 20px; margin-left: 10px;">
+                <h2 style="text-align: center;margin-right: 50px;"><a href="biking.html" style="color: rgb(0, 0, 0); text-decoration: none; width: 350px; height: 25px;">EXPLORE</a></h2>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-section" style="margin-top: 100px;">
+        <div class="footer-content">
+            <div class="footer-left">
+                <h2>Get exclusive updates<br>Subscribe to our newsletter</h2>
+                <p>Sign up to our newsletter to receive the latest travel updates.</p>
+                <form class="newsletter-form">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                    <div class="privacy-checkbox">
+                        <input type="checkbox" id="privacy" name="privacy">
+                        <label for="privacy">By subscribing, you agree to our Privacy Policy.</label>
+                    </div>
+                    <button type="submit" class="subscribe-button">SUBSCRIBE</button>
+                </form>
+            </div>
+            <div class="footer-right">
+                <ul>
+                    <li><a href="#">Adventure Sports</a></li>
+                    <li><a href="#">Adventure Near You</a></li>
+                    <li><a href="#">Magazine</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2035 by Hoopup.</p>
         </div>
     </footer>
 
 </body>
+
 </html>
